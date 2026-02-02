@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Shopping Cart - TIGSBD">
+    <title>Shopping Cart - TIGSBD</title>
+    <link rel="stylesheet" href="assets/app-8813b74f.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@900&display=swap" rel="stylesheet">
+    <style>
+        .chrome-logo-text {
+            font-family: 'Montserrat', 'Poppins', 'Impact', sans-serif;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: baseline;
+            letter-spacing: -0.02em;
+        }
+        .chrome-logo-text .main-text {
+            font-size: 1.5rem;
+            background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 20%, #d4d4d4 50%, #888888 80%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .chrome-logo-text .sub-text {
+            font-size: 0.75rem;
+            background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 20%, #d4d4d4 50%, #888888 80%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 1px;
+        }
+        @media (min-width: 768px) {
+            .chrome-logo-text .main-text { font-size: 1.875rem; }
+            .chrome-logo-text .sub-text { font-size: 0.9375rem; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 text-xs sm:text-sm font-semibold py-2 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center gap-3 justify-between">
+            <span class="flex items-center gap-2"><span class="hidden sm:inline">Cash on delivery</span><span class="w-1 h-1 rounded-full bg-slate-900"></span><span>24/7 help</span><span class="w-1 h-1 rounded-full bg-slate-900"></span><span>Easy returns</span></span>
+        </div>
+    </div>
+
+    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-slate-100 shadow-2xl sticky top-0 z-50 backdrop-blur-lg border-b border-slate-800/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2 md:gap-3">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <span class="chrome-logo-text">
+                            <span class="main-text">TIGS</span>
+                            <span class="sub-text">BD</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html" class="text-slate-100 hover:text-amber-300 px-3 py-2 rounded-md text-sm font-semibold transition">Home</a>
+                    <a href="products.html" class="text-slate-100 hover:text-amber-300 px-3 py-2 rounded-md text-sm font-semibold transition">Products</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="products.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-6 md:py-10">
+        <div class="mb-8 md:mb-10">
+            <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">Shopping Cart</h1>
+            <p class="text-slate-600">Review and manage your items before checkout</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="lg:col-span-2 space-y-4">
+                <div class="card-light p-4 md:p-6 group hover:shadow-lg transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                        <div class="sm:w-24 md:w-28 flex-shrink-0">
+                            <div class="w-full h-24 md:h-28 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+                                <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div class="flex justify-between items-start gap-3 mb-3">
+                                <div>
+                                    <a href="product.html" class="text-base md:text-lg font-bold text-slate-900 hover:text-amber-600 transition line-clamp-2">Premium Wireless Headphones</a>
+                                    <p class="text-xs md:text-sm text-slate-500 mt-1">Electronics</p>
+                                </div>
+                                <button class="text-slate-400 hover:text-red-600 transition p-1.5 hover:bg-red-50 rounded-lg" type="button">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-1">Unit Price</p>
+                                    <div>
+                                        <span class="text-lg font-black text-amber-600">BDT 4,499</span>
+                                        <span class="text-xs text-slate-400 line-through ml-2">BDT 5,999</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-1">Quantity</p>
+                                    <div class="flex items-center gap-2">
+                                        <input type="number" value="1" min="1" class="w-16 px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-amber-400 focus:outline-none text-center font-semibold text-sm">
+                                        <button class="btn-ghost px-3 py-2 text-xs font-bold" type="button">✓</button>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500 font-medium mb-1">Subtotal</p>
+                                    <p class="text-lg font-black text-slate-900">BDT 4,499</p>
+                                </div>
+                            </div>
+                            <div class="mt-3 text-xs text-amber-700 bg-amber-50 px-3 py-2 rounded-lg">⚠️ Only 5 left in stock</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-light p-4 md:p-6 group hover:shadow-lg transition-all duration-300">
+                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                        <div class="sm:w-24 md:w-28 flex-shrink-0">
+                            <div class="w-full h-24 md:h-28 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+                                <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div class="flex justify-between items-start gap-3 mb-3">
+                                <div>
+                                    <a href="product.html" class="text-base md:text-lg font-bold text-slate-900 hover:text-amber-600 transition line-clamp-2">Smart Watch Ultra Pro</a>
+                                    <p class="text-xs md:text-sm text-slate-500 mt-1">Electronics</p>
+                                </div>
+                                <button class="text-slate-400 hover:text-red-600 transition p-1.5 hover:bg-red-50 rounded-lg" type="button">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-1">Unit Price</p>
+                                    <div>
+                                        <span class="text-lg font-black text-amber-600">BDT 8,999</span>
+                                        <span class="text-xs text-slate-400 line-through ml-2">BDT 12,999</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium mb-1">Quantity</p>
+                                    <div class="flex items-center gap-2">
+                                        <input type="number" value="1" min="1" class="w-16 px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-amber-400 focus:outline-none text-center font-semibold text-sm">
+                                        <button class="btn-ghost px-3 py-2 text-xs font-bold" type="button">✓</button>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500 font-medium mb-1">Subtotal</p>
+                                    <p class="text-lg font-black text-slate-900">BDT 8,999</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="card-light p-6 md:p-8 sticky top-24 space-y-6">
+                    <h2 class="text-xl md:text-2xl font-black text-slate-900">Order Summary</h2>
+                    <div class="space-y-3 pb-6 border-b border-slate-100">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">Subtotal</span>
+                            <span class="font-bold text-slate-900">BDT 13,498</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">Shipping</span>
+                            <span class="font-bold text-emerald-600">Free Delivery</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">Discount</span>
+                            <span class="font-bold text-slate-600">BDT 0</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-slate-50 to-slate-100 px-4 py-4 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-slate-600">Total Amount</span>
+                            <span class="text-3xl font-black text-amber-600">BDT 13,498</span>
+                        </div>
+                        <p class="text-xs text-slate-500">Including all taxes & fees</p>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="checkout.html" class="btn-primary w-full py-3.5 font-bold text-center shadow-lg hover:shadow-xl transition-all block">Proceed to Checkout</a>
+                        <a href="products.html" class="btn-ghost w-full py-3 font-bold text-center transition-all block">Continue Shopping</a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+                        <div class="text-center text-xs">
+                            <p class="text-emerald-600 font-bold mb-1">✓</p>
+                            <p class="text-slate-600 text-xs">Free Returns</p>
+                        </div>
+                        <div class="text-center text-xs">
+                            <p class="text-emerald-600 font-bold mb-1">✓</p>
+                            <p class="text-slate-600 text-xs">Cash on Delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-100 pt-12 md:pt-16 pb-8 md:pb-10 border-t border-slate-800/50 mt-16 md:mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-slate-800/50 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-slate-400">&copy; 2026 TIGSBD. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/app-3f22cd7c.js"></script>
+</body>
+</html>

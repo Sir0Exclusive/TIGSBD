@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Add Address - TIGSBD">
+    <title>Add Address - TIGSBD</title>
+    <link rel="stylesheet" href="assets/app-8813b74f.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@900&display=swap" rel="stylesheet">
+    <style>
+        .chrome-logo-text {
+            font-family: 'Montserrat', 'Poppins', 'Impact', sans-serif;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: baseline;
+            letter-spacing: -0.02em;
+        }
+        .chrome-logo-text .main-text {
+            font-size: 1.5rem;
+            background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 20%, #d4d4d4 50%, #888888 80%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .chrome-logo-text .sub-text {
+            font-size: 0.75rem;
+            background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 20%, #d4d4d4 50%, #888888 80%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 1px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 text-xs sm:text-sm font-semibold py-2 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="flex items-center gap-2"><span class="hidden sm:inline">Cash on delivery</span><span class="w-1 h-1 rounded-full bg-slate-900"></span><span>24/7 help</span></span>
+        </div>
+    </div>
+
+    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-slate-100 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold chrome-logo-text">
+                    <span class="main-text">TIGS</span>
+                    <span class="sub-text">BD</span>
+                </a>
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Home</a>
+                    <a href="products.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Products</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Add Address</h1>
+            <p class="text-gray-600">Save a new shipping or billing address.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <form class="space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Address Type *</label>
+                        <select class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300" required>
+                            <option value="shipping">Shipping</option>
+                            <option value="billing">Billing</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                        <input type="text" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
+                        <input type="text" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Address Line 1 *</label>
+                        <input type="text" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Address Line 2</label>
+                    <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                        <input type="text" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">State/Division *</label>
+                        <input type="text" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code *</label>
+                        <input type="text" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Country *</label>
+                        <input type="text" value="Bangladesh" required class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-500 border-gray-300">
+                    </div>
+                    <label class="inline-flex items-center gap-2 mt-6">
+                        <input type="checkbox" class="w-4 h-4 text-primary-600 border-gray-300 rounded">
+                        <span class="text-sm text-gray-700">Set as default address</span>
+                    </label>
+                </div>
+
+                <div class="flex items-center justify-between pt-2">
+                    <a href="addresses.html" class="text-sm text-gray-600 hover:underline">Back to list</a>
+                    <button type="submit" class="px-5 py-2.5 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700">Save Address</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

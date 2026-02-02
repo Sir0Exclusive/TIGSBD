@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Dashboard - TIGSBD Admin</title>
+    <link href="../css/app-8813b74f.css" rel="stylesheet">
+    <style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+        }
+        .brand-surface {
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+    </style>
+</head>
+<body class="brand-surface min-h-screen text-slate-100">
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <aside id="adminSidebar" class="w-64 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-100 fixed left-0 top-0 bottom-0 overflow-y-auto z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl border-r border-slate-800/80">
+            <div class="p-4 mt-16 lg:mt-0">
+                <h2 class="text-xl md:text-2xl font-bold tracking-tight">TIGSBD Admin</h2>
+            </div>
+            <nav class="mt-4 pb-4 px-2">
+                <a href="dashboard.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition bg-white/10 text-amber-300">Dashboard</a>
+                <a href="products.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Products</a>
+                <a href="banners.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Banners</a>
+                <a href="orders.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">
+                    Orders
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">3</span>
+                </a>
+                <a href="restock-requests.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">
+                    Restock Requests
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-orange-600 rounded-full">5</span>
+                </a>
+                <a href="password-resets.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">
+                    Password Resets
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-amber-600 rounded-full animate-pulse">2</span>
+                </a>
+                <a href="customers.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Customers</a>
+                <a href="reviews.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">⭐ Reviews</a>
+                <a href="returns.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">📤 Returns</a>
+                <a href="payments.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">💳 Payments</a>
+                <a href="loyalty.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">🎁 Loyalty Program</a>
+                <a href="coupons.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Coupons</a>
+                <a href="activity-logs.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Activity Logs</a>
+                <a href="email-generator.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Email Generator</a>
+                <a href="policies.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Terms & Policies</a>
+                <a href="settings.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Settings</a>
+                <a href="login.html" class="block px-4 py-2 hover:text-amber-300 transition mt-4">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Overlay for mobile -->
+        <div id="adminOverlay" class="hidden lg:hidden fixed inset-0 bg-black bg-opacity-60 z-30"></div>
+
+        <div class="flex-1 w-full lg:ml-64">
+            <header class="bg-white/90 backdrop-blur border-b border-slate-200 shadow sticky top-0 z-20">
+                <div class="px-4 md:px-8 py-4 flex justify-between items-center">
+                    <h1 class="text-xl md:text-2xl font-semibold text-slate-900">Dashboard</h1>
+                    
+                    <div class="flex items-center gap-4">
+                        <!-- Sarongo Admin Button -->
+                        <a href="sarongo-dashboard.html" class="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg shadow flex items-center gap-2">
+                            <span class="inline-block w-2 h-2 rounded-full bg-white"></span>
+                            Sarongo
+                        </a>
+                        
+                        <!-- Notification Icon -->
+                        <a href="orders.html" class="relative p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                            </svg>
+                            <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full animate-pulse">3</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <main class="p-4 md:p-8 text-slate-800">
+                <!-- AI Insights Bar -->
+                <div class="bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-lg p-4 mb-6 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-bold text-lg">AI Business Insights</h3>
+                                <p class="text-sm opacity-90">Business health: <span class="font-semibold">Excellent</span></p>
+                            </div>
+                        </div>
+                        <span class="bg-white/20 px-4 py-2 rounded-lg font-semibold">87% Health Score</span>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Today's Sales -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-600 text-sm font-medium">Today's Sales</h3>
+                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">BDT 45,250</p>
+                        <p class="text-sm text-green-600 mt-2">↑ 12% from yesterday</p>
+                    </div>
+
+                    <!-- This Week -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-600 text-sm font-medium">This Week</h3>
+                            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">BDT 289,450</p>
+                        <p class="text-sm text-blue-600 mt-2">↑ 8% from last week</p>
+                    </div>
+
+                    <!-- This Month -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-600 text-sm font-medium">This Month</h3>
+                            <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">BDT 1.2M</p>
+                        <p class="text-sm text-purple-600 mt-2">↑ 15% from last month</p>
+                    </div>
+
+                    <!-- Pending Orders -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-600 text-sm font-medium">Pending Orders</h3>
+                            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">23</p>
+                        <p class="text-sm text-orange-600 mt-2">3 require immediate attention</p>
+                    </div>
+                </div>
+
+                <!-- Alerts & Notifications -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">🚨 Recent Alerts</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3 p-3 bg-red-50 rounded-lg">
+                                <span class="text-red-600 text-xl">⚠️</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-900">Low Stock Alert</p>
+                                    <p class="text-xs text-gray-600">5 products below minimum threshold</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg">
+                                <span class="text-yellow-600 text-xl">🔄</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-900">Restock Requests</p>
+                                    <p class="text-xs text-gray-600">5 products requested for restock</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                                <span class="text-blue-600 text-xl">🔑</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-900">Password Reset Requests</p>
+                                    <p class="text-xs text-gray-600">2 customers need password reset approval</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">📊 Quick Stats</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Order Completion Rate</span>
+                                    <span class="font-semibold text-gray-900">94%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Customer Satisfaction</span>
+                                    <span class="font-semibold text-gray-900">4.8/5.0</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 96%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-600">Inventory Health</span>
+                                    <span class="font-semibold text-gray-900">87%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 87%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-900">Recent Orders</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#1023</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">John Doe</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">BDT 12,500</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2026-02-02 10:30</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#1022</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Jane Smith</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">BDT 8,750</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">Processing</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2026-02-02 09:15</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#1021</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mike Johnson</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">BDT 15,200</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Completed</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2026-02-01 16:45</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const adminMobileMenuBtn = document.getElementById('adminMobileMenuBtn');
+        const adminSidebar = document.getElementById('adminSidebar');
+        const adminOverlay = document.getElementById('adminOverlay');
+        const adminMenuIcon = document.getElementById('adminMenuIcon');
+        const adminCloseIcon = document.getElementById('adminCloseIcon');
+
+        function toggleAdminMenu() {
+            adminSidebar.classList.toggle('-translate-x-full');
+            adminOverlay.classList.toggle('hidden');
+            adminMenuIcon.classList.toggle('hidden');
+            adminCloseIcon.classList.toggle('hidden');
+        }
+
+        if (adminMobileMenuBtn) {
+            adminMobileMenuBtn.addEventListener('click', toggleAdminMenu);
+        }
+
+        if (adminOverlay) {
+            adminOverlay.addEventListener('click', toggleAdminMenu);
+        }
+
+        const sidebarLinks = adminSidebar.querySelectorAll('a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    toggleAdminMenu();
+                }
+            });
+        });
+    </script>
+    <script src="../assets/app-3f22cd7c.js"></script>
+</body>
+</html>

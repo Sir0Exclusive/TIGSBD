@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>AI Email Generator - TIGSBD Admin</title>
+    <link href="../css/app-8813b74f.css" rel="stylesheet">
+    <style>
+        .brand-gradient { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); }
+        .brand-surface { background: linear-gradient(to bottom, #0f172a, #1e293b); }
+    </style>
+</head>
+<body class="brand-surface min-h-screen text-slate-100">
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="min-h-screen flex">
+        <button id="adminMobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 bg-slate-900 text-amber-300 p-3 rounded-xl shadow-2xl border border-slate-800">
+    <svg id="adminMenuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    <svg id="adminCloseIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+</button>
+<aside id="adminSidebar" class="w-64 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-100 fixed left-0 top-0 bottom-0 overflow-y-auto z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl border-r border-slate-800/80">
+    <div class="p-4 mt-16 lg:mt-0"><h2 class="text-xl md:text-2xl font-bold tracking-tight">TIGSBD Admin</h2></div>
+    <nav class="mt-4 pb-4 px-2">
+        <a href="dashboard.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Dashboard</a>
+        <a href="products.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Products</a>
+        <a href="banners.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Banners</a>
+        <a href="orders.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">Orders<span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">3</span></a>
+        <a href="restock-requests.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">Restock Requests<span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-orange-600 rounded-full">5</span></a>
+        <a href="password-resets.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">Password Resets<span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-amber-600 rounded-full animate-pulse">2</span></a>
+        <a href="customers.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Customers</a>
+        <a href="reviews.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Reviews</a>
+        <a href="returns.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Returns</a>
+        <a href="payments.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Payments</a>
+        <a href="loyalty.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Loyalty Program</a>
+        <a href="coupons.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Coupons</a>
+        <a href="activity-logs.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Activity Logs</a>
+        <a href="email-generator.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Email Generator</a>
+        <a href="policies.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Terms & Policies</a>
+        <a href="settings.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Settings</a>
+        <a href="login.html" class="block px-4 py-2 hover:text-amber-300 transition mt-4">Logout</a>
+    </nav>
+</aside>
+<div id="adminOverlay" class="hidden lg:hidden fixed inset-0 bg-black bg-opacity-60 z-30"></div>
+        <div class="flex-1 w-full lg:ml-64">
+            <header class="bg-white/90 backdrop-blur border-b border-slate-200 shadow sticky top-0 z-20">
+                <div class="px-4 md:px-8 py-4"><h1 class="text-xl md:text-2xl font-semibold text-slate-900 ml-16 lg:ml-0">AI Email Generator</h1></div>
+            </header>
+            <main class="p-4 md:p-8">
+                <div class="bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-lg p-6 mb-6">
+    <div class="flex items-center gap-3 mb-2">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+        </svg>
+        <h2 class="text-2xl font-bold">AI-Powered Email Generator</h2>
+    </div>
+    <p class="opacity-90">Generate professional marketing and customer service emails using AI.</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold text-slate-900 mb-4">Generate Email</h3>
+        <form class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Email Type</label>
+                <select class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-amber-500">
+                    <option>Select Email Type</option>
+                    <option>Product Launch</option>
+                    <option>Flash Sale</option>
+                    <option>Order Confirmation</option>
+                    <option>Shipping Update</option>
+                    <option>Customer Follow-up</option>
+                    <option>Abandoned Cart</option>
+                    <option>Birthday Discount</option>
+                    <option>Loyalty Rewards</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Tone</label>
+                <select class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-amber-500">
+                    <option>Professional</option>
+                    <option>Friendly</option>
+                    <option>Formal</option>
+                    <option>Casual</option>
+                    <option>Urgent</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Key Details</label>
+                <textarea rows="4" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-amber-500" placeholder="Enter key information to include in the email (product names, discount %, dates, etc.)"></textarea>
+            </div>
+            <button type="button" class="w-full brand-gradient text-white px-6 py-3 rounded-lg hover:opacity-90 transition font-semibold shadow-lg">
+                 Generate Email
+            </button>
+        </form>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-slate-900">Generated Email</h3>
+            <button class="text-sm text-amber-600 hover:text-amber-800 font-semibold">Copy to Clipboard</button>
+        </div>
+        <div class="border border-slate-200 rounded-lg p-6 bg-slate-50 min-h-[400px]">
+            <div class="space-y-4">
+                <div>
+                    <p class="text-sm font-semibold text-slate-600 mb-1">Subject:</p>
+                    <p class="text-slate-900 font-medium"> Exclusive Flash Sale - Up to 50% Off!</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-slate-600 mb-2">Body:</p>
+                    <div class="text-slate-800 space-y-3 leading-relaxed">
+                        <p>Dear Valued Customer,</p>
+                        <p>We are excited to announce an exclusive flash sale just for you! For the next 48 hours, enjoy up to 50% off on our premium collection of traditional Bangladeshi clothing.</p>
+                        <p><strong>Highlights:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>Designer Sarees - 50% OFF</li>
+                            <li>Traditional Punjabis - 40% OFF</li>
+                            <li>Embroidered Kurtas - 35% OFF</li>
+                        </ul>
+                        <p>Use code <strong class="brand-gradient text-transparent bg-clip-text">FLASH50</strong> at checkout to claim your discount.</p>
+                        <p>This offer is valid until February 4th, 2026. Don\'t miss out!</p>
+                        <p>Shop now at www.tigsbd.com</p>
+                        <p>Best regards,<br>TIGSBD Team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 flex gap-2">
+            <button class="brand-gradient text-white px-6 py-2 rounded-lg hover:opacity-90 font-semibold flex-1">Send Email</button>
+            <button class="bg-slate-200 text-slate-700 px-6 py-2 rounded-lg hover:bg-slate-300 font-semibold flex-1">Save Draft</button>
+        </div>
+    </div>
+</div>
+
+<div class="mt-6 bg-white rounded-lg shadow-lg p-6">
+    <h3 class="text-xl font-bold text-slate-900 mb-4">Recent Generated Emails</h3>
+    <div class="space-y-3">
+        <div class="flex justify-between items-center p-4 bg-slate-50 rounded-lg hover:bg-slate-100 cursor-pointer">
+            <div>
+                <p class="font-semibold text-slate-900">Product Launch: New Sarongo Collection</p>
+                <p class="text-sm text-slate-600">Generated on Feb 2, 2026 at 10:30 AM</p>
+            </div>
+            <button class="text-amber-600 hover:text-amber-800 font-semibold text-sm">View</button>
+        </div>
+        <div class="flex justify-between items-center p-4 bg-slate-50 rounded-lg hover:bg-slate-100 cursor-pointer">
+            <div>
+                <p class="font-semibold text-slate-900">Abandoned Cart Reminder</p>
+                <p class="text-sm text-slate-600">Generated on Feb 1, 2026 at 3:15 PM</p>
+            </div>
+            <button class="text-amber-600 hover:text-amber-800 font-semibold text-sm">View</button>
+        </div>
+        <div class="flex justify-between items-center p-4 bg-slate-50 rounded-lg hover:bg-slate-100 cursor-pointer">
+            <div>
+                <p class="font-semibold text-slate-900">Birthday Discount Offer</p>
+                <p class="text-sm text-slate-600">Generated on Jan 31, 2026 at 11:00 AM</p>
+            </div>
+            <button class="text-amber-600 hover:text-amber-800 font-semibold text-sm">View</button>
+        </div>
+    </div>
+</div>
+            </main>
+        </div>
+    </div>
+    <script>
+const mobileMenuBtn = document.getElementById("adminMobileMenuBtn");
+const sidebar = document.getElementById("adminSidebar");
+const overlay = document.getElementById("adminOverlay");
+const menuIcon = document.getElementById("adminMenuIcon");
+const closeIcon = document.getElementById("adminCloseIcon");
+mobileMenuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("-translate-x-full");
+    overlay.classList.toggle("hidden");
+    menuIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+});
+overlay.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+});
+</script>
+    <script src="../assets/app-3f22cd7c.js"></script>
+</body>
+</html>

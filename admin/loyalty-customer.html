@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Customer Loyalty Details - TIGSBD Admin</title>
+    <link href="../css/app-8813b74f.css" rel="stylesheet">
+    <style>
+        .brand-gradient { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); }
+        .brand-surface { background: linear-gradient(to bottom, #0f172a, #1e293b); }
+    </style>
+</head>
+<body class="brand-surface min-h-screen text-slate-100">
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="min-h-screen flex">
+        <button id="adminMobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 bg-slate-900 text-amber-300 p-3 rounded-xl shadow-2xl border border-slate-800">
+    <svg id="adminMenuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    <svg id="adminCloseIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+</button>
+<aside id="adminSidebar" class="w-64 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-100 fixed left-0 top-0 bottom-0 overflow-y-auto z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl border-r border-slate-800/80">
+    <div class="p-4 mt-16 lg:mt-0"><h2 class="text-xl md:text-2xl font-bold tracking-tight">TIGSBD Admin</h2></div>
+    <nav class="mt-4 pb-4 px-2">
+        <a href="dashboard.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Dashboard</a>
+        <a href="products.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Products</a>
+        <a href="banners.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Banners</a>
+        <a href="orders.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">Orders<span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">3</span></a>
+        <a href="restock-requests.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">Restock Requests<span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-orange-600 rounded-full">5</span></a>
+        <a href="password-resets.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition relative">Password Resets<span class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-amber-600 rounded-full animate-pulse">2</span></a>
+        <a href="customers.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Customers</a>
+        <a href="reviews.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Reviews</a>
+        <a href="returns.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Returns</a>
+        <a href="payments.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Payments</a>
+        <a href="loyalty.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition"> Loyalty Program</a>
+        <a href="coupons.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Coupons</a>
+        <a href="activity-logs.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Activity Logs</a>
+        <a href="email-generator.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Email Generator</a>
+        <a href="policies.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Terms & Policies</a>
+        <a href="settings.html" class="block px-4 py-2 hover:bg-white/10 rounded-lg transition">Settings</a>
+        <a href="login.html" class="block px-4 py-2 hover:text-amber-300 transition mt-4">Logout</a>
+    </nav>
+</aside>
+<div id="adminOverlay" class="hidden lg:hidden fixed inset-0 bg-black bg-opacity-60 z-30"></div>
+        <div class="flex-1 w-full lg:ml-64">
+            <header class="bg-white/90 backdrop-blur border-b border-slate-200 shadow sticky top-0 z-20">
+                <div class="px-4 md:px-8 py-4"><h1 class="text-xl md:text-2xl font-semibold text-slate-900 ml-16 lg:ml-0">Customer Loyalty Details</h1></div>
+            </header>
+            <main class="p-4 md:p-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 max-w-3xl">
+    <div class="flex justify-between items-start mb-6">
+        <div>
+            <h2 class="text-2xl font-bold text-slate-900">Kamrul Hasan</h2>
+            <p class="text-slate-600">kamrul@example.com</p>
+        </div>
+        <div class="text-right">
+            <p class="text-sm text-slate-600">Current Balance</p>
+            <p class="text-3xl font-bold text-amber-600">850 Points</p>
+        </div>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-green-50 p-4 rounded-lg">
+            <p class="text-sm text-slate-600">Total Earned</p>
+            <p class="text-2xl font-bold text-green-600">1,200</p>
+        </div>
+        <div class="bg-red-50 p-4 rounded-lg">
+            <p class="text-sm text-slate-600">Total Used</p>
+            <p class="text-2xl font-bold text-red-600">350</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-sm text-slate-600">Lifetime Value</p>
+            <p class="text-2xl font-bold text-blue-600">42,300</p>
+        </div>
+    </div>
+    <h3 class="text-xl font-bold text-slate-900 mb-4">Recent Transactions</h3>
+    <div class="space-y-3">
+        <div class="flex justify-between items-center p-4 bg-slate-50 rounded-lg">
+            <div>
+                <p class="font-semibold text-green-600">+100 Points</p>
+                <p class="text-sm text-slate-600">Order #ORD-1001</p>
+                <p class="text-xs text-slate-500">Feb 2, 2026</p>
+            </div>
+        </div>
+        <div class="flex justify-between items-center p-4 bg-slate-50 rounded-lg">
+            <div>
+                <p class="font-semibold text-red-600">-150 Points</p>
+                <p class="text-sm text-slate-600">Redeemed for discount</p>
+                <p class="text-xs text-slate-500">Jan 25, 2026</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </main>
+        </div>
+    </div>
+    <script>
+const mobileMenuBtn = document.getElementById("adminMobileMenuBtn");
+const sidebar = document.getElementById("adminSidebar");
+const overlay = document.getElementById("adminOverlay");
+const menuIcon = document.getElementById("adminMenuIcon");
+const closeIcon = document.getElementById("adminCloseIcon");
+mobileMenuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("-translate-x-full");
+    overlay.classList.toggle("hidden");
+    menuIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+});
+overlay.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+});
+</script>
+    <script src="../assets/app-3f22cd7c.js"></script>
+</body>
+</html>

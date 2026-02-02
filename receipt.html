@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Order Receipt #1042</title>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 14px; color: #333; margin: 0; padding: 20px; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #4F46E5; padding-bottom: 20px; }
+        .company-name { font-size: 24px; font-weight: bold; color: #4F46E5; margin: 10px 0; }
+        .receipt-title { font-size: 20px; font-weight: bold; margin-top: 10px; }
+        .order-info { margin-bottom: 20px; background: #f9fafb; padding: 15px; border-radius: 8px; }
+        .info-row { display: table; width: 100%; margin-bottom: 8px; }
+        .info-label { display: table-cell; width: 30%; font-weight: bold; color: #6b7280; }
+        .info-value { display: table-cell; width: 70%; }
+        .section-title { font-size: 16px; font-weight: bold; margin: 20px 0 10px 0; color: #1f2937; border-bottom: 1px solid #e5e7eb; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th { background: #f3f4f6; padding: 10px; text-align: left; font-weight: bold; border-bottom: 2px solid #d1d5db; }
+        td { padding: 10px; border-bottom: 1px solid #e5e7eb; }
+        .text-right { text-align: right; }
+        .total-section { background: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .total-row { display: table; width: 100%; margin-bottom: 8px; }
+        .total-label { display: table-cell; width: 70%; text-align: right; padding-right: 20px; }
+        .total-value { display: table-cell; width: 30%; text-align: right; font-weight: bold; }
+        .grand-total { font-size: 18px; color: #4F46E5; border-top: 2px solid #d1d5db; padding-top: 10px; margin-top: 10px; }
+        .qr-section { text-align: center; margin-top: 30px; padding: 20px; background: #f9fafb; border-radius: 8px; }
+        .qr-code { width: 150px; height: 150px; margin: 10px auto; border: 2px dashed #cbd5f5; display: flex; align-items: center; justify-content: center; color: #9ca3af; }
+        .qr-text { font-size: 12px; color: #6b7280; margin-top: 10px; }
+        .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #e5e7eb; padding-top: 20px; }
+        .status-badge { display: inline-block; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; }
+        .status-confirmed { background: #dbeafe; color: #1e40af; }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="header">
+        <div class="company-name">TIGSBD</div>
+        <div class="receipt-title">ORDER RECEIPT</div>
+    </div>
+
+    <div class="order-info">
+        <div class="info-row"><div class="info-label">Order ID:</div><div class="info-value">#1042</div></div>
+        <div class="info-row"><div class="info-label">Order Date:</div><div class="info-value">February 2, 2026 10:15 AM</div></div>
+        <div class="info-row"><div class="info-label">Status:</div><div class="info-value"><span class="status-badge status-confirmed">Confirmed</span></div></div>
+        <div class="info-row"><div class="info-label">Payment Method:</div><div class="info-value">Cash on Delivery</div></div>
+    </div>
+
+    <div class="section-title">Customer Information</div>
+    <div class="order-info">
+        <div class="info-row"><div class="info-label">Name:</div><div class="info-value">Sadia Rahman</div></div>
+        <div class="info-row"><div class="info-label">Email:</div><div class="info-value">sadia@example.com</div></div>
+        <div class="info-row"><div class="info-label">Phone:</div><div class="info-value">+8801712345678</div></div>
+        <div class="info-row"><div class="info-label">Address:</div><div class="info-value">House 32, Road 7, Dhanmondi, Dhaka</div></div>
+    </div>
+
+    <div class="section-title">Order Items</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Premium Wireless Headphones</td>
+                <td class="text-right">BDT 4,499</td>
+                <td class="text-right">1</td>
+                <td class="text-right">BDT 4,499</td>
+            </tr>
+            <tr>
+                <td>Smart Watch Ultra Pro</td>
+                <td class="text-right">BDT 8,999</td>
+                <td class="text-right">1</td>
+                <td class="text-right">BDT 8,999</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="total-section">
+        <div class="total-row"><div class="total-label">Subtotal:</div><div class="total-value">BDT 13,498</div></div>
+        <div class="total-row"><div class="total-label">Shipping:</div><div class="total-value">BDT 60</div></div>
+        <div class="total-row grand-total"><div class="total-label">Grand Total:</div><div class="total-value">BDT 13,558</div></div>
+    </div>
+
+    <div class="qr-section">
+        <div class="section-title" style="text-align: center; border: none;">Track Your Order</div>
+        <div class="qr-code">QR</div>
+        <div class="qr-text">Scan this QR code anytime to track your order status.<br>Order ID: #1042</div>
+    </div>
+
+    <div class="footer">
+        <p>Thank you for shopping with TIGSBD!</p>
+        <p>For any questions or concerns, please contact our customer support.</p>
+        <p style="margin-top: 10px; font-size: 10px;">This is a computer-generated receipt and does not require a signature.</p>
+    </div>
+</body>
+</html>

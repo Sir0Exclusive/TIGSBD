@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Customer Login - TIGSBD">
+    <title>Customer Login - TIGSBD</title>
+    <link rel="stylesheet" href="assets/app-8813b74f.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@900&display=swap" rel="stylesheet">
+    <style>
+        .chrome-logo-text {
+            font-family: 'Montserrat', 'Poppins', 'Impact', sans-serif;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: baseline;
+            letter-spacing: -0.02em;
+        }
+        .chrome-logo-text .main-text {
+            font-size: 1.5rem;
+            background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 20%, #d4d4d4 50%, #888888 80%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .chrome-logo-text .sub-text {
+            font-size: 0.75rem;
+            background: linear-gradient(180deg, #e0e0e0 0%, #ffffff 20%, #d4d4d4 50%, #888888 80%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 1px;
+        }
+        @media (min-width: 768px) {
+            .chrome-logo-text .main-text { font-size: 1.875rem; }
+            .chrome-logo-text .sub-text { font-size: 0.9375rem; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-slate-900 py-3 px-4 text-center text-sm md:text-base font-bold sticky top-0 z-40 shadow-md">
+         This Website is Still in Development - Features and designs may change. Thank you for your patience!
+    </div>
+    <div class="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 text-slate-900 text-xs sm:text-sm font-semibold py-2 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="flex items-center gap-2"><span class="hidden sm:inline">Cash on delivery</span><span class="w-1 h-1 rounded-full bg-slate-900"></span><span>24/7 help</span></span>
+        </div>
+    </div>
+
+    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-slate-100 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold chrome-logo-text">
+                    <span class="main-text">TIGS</span>
+                    <span class="sub-text">BD</span>
+                </a>
+                <div class="flex gap-4">
+                    <a href="index.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Home</a>
+                    <a href="products.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Products</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+            <div class="text-white space-y-4">
+                <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Secure Login</span>
+                <h1 class="text-3xl sm:text-4xl font-black leading-tight">Welcome back to TIGSBD</h1>
+                <p class="text-slate-300 text-base leading-relaxed">Access your orders, track deliveries, manage returns, and unlock loyalty rewards in one place.</p>
+                <div class="flex flex-wrap gap-3 text-sm text-slate-200">
+                    <span class="brand-badge px-3 py-1 rounded-full">COD & Easy Returns</span>
+                    <span class="bg-white/10 border border-white/10 px-3 py-1 rounded-full">Order tracking</span>
+                    <span class="bg-white/10 border border-white/10 px-3 py-1 rounded-full">Loyalty points</span>
+                </div>
+            </div>
+
+            <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/40 p-8 space-y-8">
+                <div class="space-y-2 text-center">
+                    <h2 class="text-2xl font-bold text-slate-900">Sign in to continue</h2>
+                    <p class="text-sm text-slate-600">New here? <a href="register.html" class="text-amber-600 font-semibold hover:text-amber-500">Create an account</a></p>
+                </div>
+                <form class="space-y-5">
+                    <div class="space-y-4">
+                        <label class="block">
+                            <span class="text-sm font-semibold text-slate-800">Email address</span>
+                            <input type="email" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="you@example.com">
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-semibold text-slate-800">Password</span>
+                            <input type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="••••••••">
+                        </label>
+                    </div>
+                    <div class="flex items-center justify-between text-sm text-slate-700">
+                        <label class="inline-flex items-center gap-2">
+                            <input type="checkbox" class="h-4 w-4 text-amber-500 focus:ring-amber-400 border-slate-300 rounded" checked>
+                            <span>Keep me signed in</span>
+                        </label>
+                        <a href="forgot-password.html" class="text-amber-600 font-semibold hover:text-amber-500">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/25 transition-transform duration-150 hover:-translate-y-0.5">Sign in securely</button>
+                </form>
+
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+                    <div class="relative flex justify-center text-sm"><span class="px-2 bg-white text-slate-500">Or continue with</span></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" class="inline-flex justify-center items-center gap-2 py-3 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold transition-colors">Google</button>
+                    <button type="button" class="inline-flex justify-center items-center gap-2 py-3 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold transition-colors">Facebook</button>
+                </div>
+                <div class="text-xs text-center text-amber-600 bg-amber-50 py-2 px-3 rounded-lg">Social login setup pending - Coming soon!</div>
+                <div class="text-xs text-center text-slate-500">Protected with 2FA-ready sessions and SSL</div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/app-3f22cd7c.js"></script>
+</body>
+</html>
