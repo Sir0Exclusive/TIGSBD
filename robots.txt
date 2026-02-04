@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /_*
+Sitemap: https://www.tigsbd.com/sitemap.xml
