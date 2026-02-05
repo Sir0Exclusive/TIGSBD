@@ -298,6 +298,28 @@
             });
         });
     </script>
+
+    <script src="../js/laravel-admin-api.js"></script>
+    <script>
+        // Load dashboard stats
+        document.addEventListener('DOMContentLoaded', async function() {
+            const stats = await getAdminStats();
+            
+            // Update stat cards
+            document.querySelectorAll('.stat-card').forEach((card, index) => {
+                const values = [
+                    stats.totalOrders || 0,
+                    stats.totalRevenue || 0,
+                    stats.pendingOrders || 0,
+                    stats.totalCustomers || 0
+                ];
+                const valueElement = card.querySelector('.stat-value');
+                if (valueElement && values[index] !== undefined) {
+                    valueElement.textContent = values[index].toLocaleString();
+                }
+            });
+        });
+    </script>
     <script src="../assets/app-3f22cd7c.js"></script>
 </body>
 </html>

@@ -88,39 +88,56 @@
                     <h2 class="text-2xl font-bold text-slate-900">Create your account</h2>
                     <p class="text-sm text-slate-600">Already have one? <a href="login.html" class="text-amber-600 font-semibold hover:text-amber-500">Sign in</a></p>
                 </div>
-                <form class="space-y-5">
+                <form id="register-form" class="space-y-5" onsubmit="handleRegister(event)">
                     <div class="space-y-4">
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Full Name</span>
-                            <input type="text" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="Your full name">
+                            <input id="register-name" type="text" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="Your full name">
                         </label>
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Email address</span>
-                            <input type="email" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="you@example.com">
+                            <input id="register-email" type="email" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="you@example.com">
                         </label>
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Phone Number *</span>
-                            <input type="text" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="01XXXXXXXXX">
+                            <input id="register-phone" type="text" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="01XXXXXXXXX">
                             <p class="mt-1 text-xs text-slate-500">Required for password recovery</p>
                         </label>
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Password</span>
-                            <input type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="At least 6 characters">
+                            <input id="register-password" type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="At least 6 characters">
                         </label>
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Confirm Password</span>
-                            <input type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="Re-enter password">
+                            <input id="register-confirm" type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="Re-enter password">
                         </label>
                     </div>
                     <div class="flex items-start gap-2 mb-4">
-                        <input type="checkbox" required class="mt-1">
+                        <input id="register-terms" type="checkbox" required class="mt-1">
                         <label class="text-sm text-slate-700">I agree to the <span class="text-primary-600 font-medium">Terms & Conditions</span></label>
                     </div>
-                    <button type="submit" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/25 transition-transform duration-150 hover:-translate-y-0.5">Create Account</button>
+                    <button type="submit" id="register-btn" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/25 transition-transform duration-150 hover:-translate-y-0.5">Create Account</button>
                 </form>
             </div>
         </div>
     </div>
+    <script src="js/laravel-api.js"></script>
+    <script>
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const phone = document.getElementById('register-phone').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            const btn = document.getElementById('register-btn');
+            
+            btn.disabled = true;
+            btn.textContent = 'Creating account...';
+            
+            registerUser(name, email, phone, password, confirm);
+        }
+    </script>
     <script src="assets/app-3f22cd7c.js"></script>
 </body>
 </html>

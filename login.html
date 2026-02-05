@@ -85,15 +85,15 @@
                     <h2 class="text-2xl font-bold text-slate-900">Sign in to continue</h2>
                     <p class="text-sm text-slate-600">New here? <a href="register.html" class="text-amber-600 font-semibold hover:text-amber-500">Create an account</a></p>
                 </div>
-                <form class="space-y-5">
+                <form id="login-form" class="space-y-5" onsubmit="handleLogin(event)">
                     <div class="space-y-4">
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Email address</span>
-                            <input type="email" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="you@example.com">
+                            <input id="login-email" type="email" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="you@example.com">
                         </label>
                         <label class="block">
                             <span class="text-sm font-semibold text-slate-800">Password</span>
-                            <input type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="••••••••">
+                            <input id="login-password" type="password" required class="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-3 text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:ring-2 focus:ring-amber-300 focus:outline-none bg-white" placeholder="••••••••">
                         </label>
                     </div>
                     <div class="flex items-center justify-between text-sm text-slate-700">
@@ -103,7 +103,7 @@
                         </label>
                         <a href="forgot-password.html" class="text-amber-600 font-semibold hover:text-amber-500">Forgot password?</a>
                     </div>
-                    <button type="submit" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/25 transition-transform duration-150 hover:-translate-y-0.5">Sign in securely</button>
+                    <button type="submit" id="login-btn" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 shadow-lg shadow-amber-500/25 transition-transform duration-150 hover:-translate-y-0.5">Sign in securely</button>
                 </form>
 
                 <div class="relative">
@@ -120,6 +120,20 @@
             </div>
         </div>
     </div>
+    <script src="js/laravel-api.js"></script>
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const btn = document.getElementById('login-btn');
+            
+            btn.disabled = true;
+            btn.textContent = 'Signing in...';
+            
+            loginUser(email, password);
+        }
+    </script>
     <script src="assets/app-3f22cd7c.js"></script>
 </body>
 </html>
