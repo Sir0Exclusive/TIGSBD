@@ -57,14 +57,6 @@
                     </span>
                 </a>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-amber-300 hover:text-amber-200 transition font-semibold">Home</a>
                     <a href="products.html" class="hover:text-amber-300 transition">Products</a>
@@ -72,7 +64,7 @@
                     <a href="#categories" class="hover:text-amber-300 transition">Categories</a>
                 </div>
 
-                <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-4">
                     <!-- Sticky Search Bar (shown on scroll) -->
                     <div id="stickySearchContainer" class="hidden transition-all duration-300 relative">
                         <!-- Search Icon Button -->
@@ -112,6 +104,13 @@
                     </a>
                     <a href="login.html" class="bg-amber-400 text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-amber-300 transition">Login</a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
