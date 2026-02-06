@@ -35,6 +35,13 @@
         }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .mobile-only { display: flex; }
+        .desktop-only { display: none; }
+        @media (min-width: 768px) {
+            .mobile-only { display: none !important; }
+            .desktop-only { display: flex !important; }
+        }
+        details summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="bg-slate-50">
@@ -57,14 +64,14 @@
                     </span>
                 </a>
 
-                <div class="hidden md:flex space-x-8">
+                <div class="desktop-only space-x-8">
                     <a href="index.html" class="text-amber-300 hover:text-amber-200 transition font-semibold">Home</a>
                     <a href="products.html" class="hover:text-amber-300 transition">Products</a>
                     <a href="sarongo.html" class="hover:text-amber-300 transition">Sarongo</a>
                     <a href="#categories" class="hover:text-amber-300 transition">Categories</a>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-4">
+                <div class="desktop-only items-center space-x-4">
                     <!-- Sticky Search Bar (shown on scroll) -->
                     <div id="stickySearchContainer" class="transition-all duration-300 relative" style="display: none;">
                         <!-- Search Icon Button -->
@@ -105,7 +112,7 @@
                     <a href="login.html" class="bg-amber-400 text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-amber-300 transition">Login</a>
                 </div>
 
-                <div class="flex items-center gap-2 md:hidden">
+                <div class="mobile-only items-center gap-2">
                     <a href="sarongo.html" class="px-3 py-1.5 rounded-lg bg-amber-400 text-slate-900 text-sm font-semibold hover:bg-amber-300 transition">Sarongo</a>
                     <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,18 +147,15 @@
                 <a href="index.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Home</a>
                 <a href="products.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Products</a>
 
-                <button id="mobileCategoriesToggle" class="w-full flex items-center justify-between px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold" aria-expanded="false">
-                    <span>Categories</span>
-                    <svg id="mobileCategoriesChevron" class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div id="mobileCategoriesSubmenu" class="hidden pl-4 space-y-2">
-                    <a href="products.html?category=1" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Electronics</a>
-                    <a href="products.html?category=2" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Fashion</a>
-                    <a href="sarongo.html" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Sarongo Collection</a>
-                    <a href="products.html?category=4" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Home & Living</a>
-                </div>
+                <details class="px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition">
+                    <summary class="cursor-pointer font-semibold">Categories</summary>
+                    <div class="mt-2 pl-4 space-y-2">
+                        <a href="products.html?category=1" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Electronics</a>
+                        <a href="products.html?category=2" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Fashion</a>
+                        <a href="sarongo.html" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Sarongo Collection</a>
+                        <a href="products.html?category=4" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Home & Living</a>
+                    </div>
+                </details>
 
                 <a href="cart.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Cart</a>
                 <a href="wishlist.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Wishlist</a>
@@ -852,9 +856,6 @@
         const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
         const mobileMenuPanel = document.getElementById('mobileMenuPanel');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const mobileCategoriesToggle = document.getElementById('mobileCategoriesToggle');
-        const mobileCategoriesSubmenu = document.getElementById('mobileCategoriesSubmenu');
-        const mobileCategoriesChevron = document.getElementById('mobileCategoriesChevron');
 
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', function() {
@@ -866,11 +867,6 @@
         function closeMobileMenu() {
             mobileMenuPanel.style.transform = 'translateX(-100%)';
             mobileMenuOverlay.style.display = 'none';
-            if (mobileCategoriesSubmenu && mobileCategoriesChevron && mobileCategoriesToggle) {
-                mobileCategoriesSubmenu.classList.add('hidden');
-                mobileCategoriesChevron.classList.remove('rotate-180');
-                mobileCategoriesToggle.setAttribute('aria-expanded', 'false');
-            }
         }
 
         if (closeMobileMenuBtn) {
@@ -879,15 +875,6 @@
 
         if (mobileMenuOverlay) {
             mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        }
-
-        if (mobileCategoriesToggle && mobileCategoriesSubmenu && mobileCategoriesChevron) {
-            mobileCategoriesToggle.addEventListener('click', function() {
-                const isOpen = !mobileCategoriesSubmenu.classList.contains('hidden');
-                mobileCategoriesSubmenu.classList.toggle('hidden');
-                mobileCategoriesChevron.classList.toggle('rotate-180');
-                mobileCategoriesToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-            });
         }
 
         // Close menu when clicking links
