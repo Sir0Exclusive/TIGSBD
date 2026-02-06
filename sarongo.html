@@ -52,18 +52,23 @@
         </div>
     </div>
 
-    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-slate-100 shadow-2xl sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="sarongo.html" class="text-2xl font-bold flex flex-col leading-tight">
-                    <span class="text-orange-300">Sarongo</span>
-                    <span class="text-xs text-orange-200/80 font-semibold">Premium Collection</span>
+    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="sarongo.html" class="flex items-center">
+                    <span class="text-2xl font-bold flex flex-col leading-tight">
+                        <span class="text-orange-300">Sarongo</span>
+                        <span class="text-xs text-orange-200/80 font-semibold">Premium</span>
+                    </span>
                 </a>
-                <div class="hidden md:flex gap-4 items-center">
-                    <a href="index.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Home</a>
-                    <a href="products.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Products</a>
+
+                <div class="hidden md:flex gap-4 items-center space-x-8">
+                    <a href="index.html" class="hover:text-amber-300 transition font-semibold">Home</a>
+                    <a href="products.html" class="hover:text-amber-300 transition">Products</a>
+                    <a href="sarongo.html" class="text-amber-300 hover:text-amber-200 transition font-semibold">Sarongo</a>
                 </div>
-                <div class="flex items-center gap-4">
+
+                <div class="hidden md:flex items-center space-x-4">
                     <a href="cart.html" class="hover:text-amber-300 transition relative">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -77,11 +82,74 @@
                     </a>
                     <a href="login.html" class="bg-orange-400 text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-orange-300 transition">Login</a>
                 </div>
+
+                <div class="md:hidden flex items-center gap-2">
+                    <a href="sarongo.html" class="px-3 py-1.5 rounded-lg bg-orange-400 text-slate-900 text-sm font-semibold hover:bg-orange-300 transition">Sarongo</a>
+                    <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-4 md:py-8">
+    <!-- Banner Slider -->
+    <div class="w-full bg-gradient-to-b from-slate-50 to-white py-6">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-slate-200/50 group">
+                <div class="banner-slider relative" style="height: auto; min-height: 280px;" class="sm:min-h-96 md:min-h-96">
+                    <style>.banner-slider { height: 280px; } @media (min-width: 640px) { .banner-slider { height: 380px; } } @media (min-width: 768px) { .banner-slider { height: 420px; } }</style>
+                    <div class="banner-slide absolute inset-0 opacity-100 z-10">
+                        <img src="https://images.unsplash.com/photo-1618991738289-e5dd2eb9d24a?w=1600&h=800&fit=crop" alt="Sarongo Banner 1" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
+                    </div>
+                    <div class="banner-slide absolute inset-0 opacity-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&h=800&fit=crop" alt="Sarongo Banner 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="banner-slide absolute inset-0 opacity-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1535597066063-384a5eed47f4?w=1600&h=800&fit=crop" alt="Sarongo Banner 3" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Indicators -->
+                    <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2.5 z-20 backdrop-blur-md bg-white/20 px-3 py-2 rounded-full border border-white/30">
+                        <button class="banner-indicator bg-white w-9 h-2.5 rounded-full" data-slide="0"></button>
+                        <button class="banner-indicator w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white/80" data-slide="1"></button>
+                        <button class="banner-indicator w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white/80" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Slider Script -->
+    <script>
+        const slides = document.querySelectorAll('.banner-slide');
+        const indicators = document.querySelectorAll('.banner-indicator');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.opacity = '0');
+            indicators.forEach(indicator => indicator.classList.remove('bg-white'));
+            slides[n].style.opacity = '1';
+            indicators[n].classList.add('bg-white');
+        }
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+    </script>
+
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-4 md:py-8 relative z-20">
         <div class="relative bg-gradient-to-br from-orange-500 via-red-500 to-red-600 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 text-white shadow-xl md:shadow-2xl overflow-hidden">
             <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 md:w-64 md:h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-24 h-24 md:w-48 md:h-48 bg-yellow-300 opacity-10 rounded-full blur-3xl"></div>
@@ -303,5 +371,6 @@
         </div>
     </footer>
     <script src="assets/app-3f22cd7c.js"></script>
+    <script src="js/mobile-menu-global.js"></script>
 </body>
 </html>
