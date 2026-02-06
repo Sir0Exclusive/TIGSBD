@@ -66,7 +66,7 @@
 
                 <div class="hidden md:flex items-center space-x-4">
                     <!-- Sticky Search Bar (shown on scroll) -->
-                    <div id="stickySearchContainer" class="hidden transition-all duration-300 relative">
+                    <div id="stickySearchContainer" class="transition-all duration-300 relative" style="display: none;">
                         <!-- Search Icon Button -->
                         <button id="searchToggleBtn" type="button" class="p-2 rounded-full hover:bg-slate-800/70 transition text-slate-100 border border-white/10">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -620,9 +620,9 @@
                 
                 // Show sticky search after scrolling down 300px
                 if (scrollTop > 300) {
-                    stickySearchContainer.classList.remove('hidden');
+                    stickySearchContainer.style.display = 'block';
                 } else {
-                    stickySearchContainer.classList.add('hidden');
+                    stickySearchContainer.style.display = 'none';
                     searchBarForm.classList.add('hidden');
                 }
             });
