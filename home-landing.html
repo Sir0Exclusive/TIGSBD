@@ -136,8 +136,20 @@
             <nav class="flex-1 overflow-y-auto p-4 space-y-2">
                 <a href="index.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Home</a>
                 <a href="products.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Products</a>
-                <a href="sarongo.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Sarongo</a>
-                <a href="#categories" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Categories</a>
+
+                <button id="mobileCategoriesToggle" class="w-full flex items-center justify-between px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold" aria-expanded="false">
+                    <span>Categories</span>
+                    <svg id="mobileCategoriesChevron" class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div id="mobileCategoriesSubmenu" class="hidden pl-4 space-y-2">
+                    <a href="products.html?category=1" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Electronics</a>
+                    <a href="products.html?category=2" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Fashion</a>
+                    <a href="sarongo.html" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Sarongo Collection</a>
+                    <a href="products.html?category=4" class="block px-4 py-2 text-slate-200 hover:bg-slate-800 rounded-lg transition">Home & Living</a>
+                </div>
+
                 <a href="cart.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Cart</a>
                 <a href="wishlist.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Wishlist</a>
             </nav>
@@ -837,6 +849,9 @@
         const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
         const mobileMenuPanel = document.getElementById('mobileMenuPanel');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileCategoriesToggle = document.getElementById('mobileCategoriesToggle');
+        const mobileCategoriesSubmenu = document.getElementById('mobileCategoriesSubmenu');
+        const mobileCategoriesChevron = document.getElementById('mobileCategoriesChevron');
 
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', function() {
@@ -848,6 +863,11 @@
         function closeMobileMenu() {
             mobileMenuPanel.style.transform = 'translateX(-100%)';
             mobileMenuOverlay.style.display = 'none';
+            if (mobileCategoriesSubmenu && mobileCategoriesChevron && mobileCategoriesToggle) {
+                mobileCategoriesSubmenu.classList.add('hidden');
+                mobileCategoriesChevron.classList.remove('rotate-180');
+                mobileCategoriesToggle.setAttribute('aria-expanded', 'false');
+            }
         }
 
         if (closeMobileMenuBtn) {
@@ -856,6 +876,15 @@
 
         if (mobileMenuOverlay) {
             mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileCategoriesToggle && mobileCategoriesSubmenu && mobileCategoriesChevron) {
+            mobileCategoriesToggle.addEventListener('click', function() {
+                const isOpen = !mobileCategoriesSubmenu.classList.contains('hidden');
+                mobileCategoriesSubmenu.classList.toggle('hidden');
+                mobileCategoriesChevron.classList.toggle('rotate-180');
+                mobileCategoriesToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            });
         }
 
         // Close menu when clicking links
