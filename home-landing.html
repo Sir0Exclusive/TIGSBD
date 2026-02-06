@@ -114,6 +114,41 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden" style="display: none;"></div>
+    <div id="mobileMenuPanel" class="fixed top-0 left-0 w-80 h-screen bg-slate-900 shadow-2xl z-40 transform -translate-x-full transition-transform duration-300" style="transform: translateX(-100%); width: min(100%, 20rem);">
+        <!-- Menu Content -->
+        <div class="flex flex-col h-full">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-4 border-b border-slate-700">
+                <span class="chrome-logo-text">
+                    <div class="main-text text-sm">TIGSBD</div>
+                    <div class="sub-text text-xs">Menu</div>
+                </span>
+                <button id="closeMobileMenuBtn" class="p-2 text-white hover:bg-slate-800 rounded transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Links -->
+            <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Home</a>
+                <a href="products.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Products</a>
+                <a href="sarongo.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Sarongo</a>
+                <a href="#categories" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Categories</a>
+                <a href="cart.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Cart</a>
+                <a href="wishlist.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Wishlist</a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-slate-700">
+                <a href="login.html" class="block w-full bg-amber-400 text-slate-900 px-4 py-3 rounded-lg font-bold text-center hover:bg-amber-300 transition">Login</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Banner Slider -->
     <div class="w-full bg-gradient-to-b from-slate-50 to-white py-6">
         <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -796,6 +831,45 @@
     <script>
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-    <script src="assets/app-3f22cd7c.js"></script>
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenuPanel.style.transform = 'translateX(0)';
+                mobileMenuOverlay.style.display = 'block';
+            });
+        }
+
+        function closeMobileMenu() {
+            mobileMenuPanel.style.transform = 'translateX(-100%)';
+            mobileMenuOverlay.style.display = 'none';
+        }
+
+        if (closeMobileMenuBtn) {
+            closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Close menu when clicking links
+        const mobileMenuLinks = mobileMenuPanel.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
