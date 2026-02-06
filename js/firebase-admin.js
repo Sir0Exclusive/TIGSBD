@@ -3,6 +3,9 @@
 
 let currentAdmin = null;
 
+// Allowed admin emails (leave empty to allow any authenticated user)
+const ADMIN_EMAIL_WHITELIST = [];
+
 // Check admin authentication on page load
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof firebase !== 'undefined' && firebase.auth) {
@@ -19,8 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Check if user is admin
 function checkAdminStatus(user) {
-  // For now, all logged-in users are admins
-  // In production, check a user role in database
+  if (ADMIN_EMAIL_WHITELIST.length > 0 && !ADMIN_EMAIL_WHITELIST.includes(user.email)) {
+    alert('Access denied: Admin only');
+    firebase.auth().signOut();
+    return;
+  }
+
   console.log('Admin logged in:', user.email);
 }
 

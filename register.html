@@ -121,8 +121,14 @@
             </div>
         </div>
     </div>
-    <script src="js/laravel-api.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
     <script>
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
         function handleRegister(e) {
             e.preventDefault();
             const name = document.getElementById('register-name').value;
@@ -132,10 +138,33 @@
             const confirm = document.getElementById('register-confirm').value;
             const btn = document.getElementById('register-btn');
             
+            if (password !== confirm) {
+                alert('Passwords do not match');
+                return;
+            }
+            
             btn.disabled = true;
             btn.textContent = 'Creating account...';
             
-            registerUser(name, email, phone, password, confirm);
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Save user data to database
+                    return firebase.database().ref('users/' + userCredential.user.uid).set({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        createdAt: firebase.database.ServerValue.TIMESTAMP
+                    });
+                })
+                .then(() => {
+                    console.log('Registration successful');
+                    window.location.href = 'account.html';
+                })
+                .catch((error) => {
+                    alert('Registration error: ' + error.message);
+                    btn.disabled = false;
+                    btn.textContent = 'Create Account';
+                });
         }
     </script>
     <script src="assets/app-3f22cd7c.js"></script>

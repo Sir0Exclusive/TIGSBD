@@ -1,10 +1,10 @@
-// Firebase Authentication Module
-// Include this script after firebase-config.js and Firebase SDK scripts
+// Firebase Authentication Module (Compat SDK)
+// Include this script after firebase-config.js and Firebase compat SDK scripts
 
 // Firebase Auth State
 let currentUser = null;
 
-// Check if user is logged in on page load
+// Initialize Firebase and setup auth listener
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof firebase !== 'undefined' && firebase.auth) {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -38,47 +38,63 @@ function updateAuthUI() {
 }
 
 // Login with email and password
-function loginUser(email, password) {
+function loginUser(email, password, callback) {
   if (typeof firebase === 'undefined' || !firebase.auth) {
     alert('Firebase not initialized');
     return;
   }
   
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function(result) {
-      console.log('Login successful:', result.user.email);
-      currentUser = result.user;
+    .then(function(userCredential) {
+      console.log('Login successful:', userCredential.user.email);
+      currentUser = userCredential.user;
       updateAuthUI();
-      window.location.href = '/account.html';
+      if (callback) callback(null, userCredential.user);
+      else window.location.href = 'account.html';
     })
     .catch(function(error) {
-      alert('Login error: ' + error.message);
       console.error('Login error:', error);
+      if (callback) callback(error);
+      else alert('Login error: ' + error.message);
     });
 }
 
-// Register new user
-function registerUser(email, password, confirmPassword) {
+// Register new user with user data
+function registerUser(name, email, phone, password, confirmPassword, callback) {
   if (typeof firebase === 'undefined' || !firebase.auth) {
     alert('Firebase not initialized');
     return;
   }
 
   if (password !== confirmPassword) {
-    alert('Passwords do not match');
+    const error = new Error('Passwords do not match');
+    if (callback) callback(error);
+    else alert(error.message);
     return;
   }
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(result) {
-      console.log('Registration successful:', result.user.email);
-      currentUser = result.user;
+    .then(function(userCredential) {
+      currentUser = userCredential.user;
+      // Save user data to database
+      return firebase.database().ref('users/' + userCredential.user.uid).set({
+        name: name,
+        email: email,
+        phone: phone,
+        createdAt: firebase.database.ServerValue.TIMESTAMP,
+        role: 'customer'
+      });
+    })
+    .then(function() {
+      console.log('Registration successful');
       updateAuthUI();
-      window.location.href = '/account.html';
+      if (callback) callback(null, currentUser);
+      else window.location.href = 'account.html';
     })
     .catch(function(error) {
-      alert('Registration error: ' + error.message);
       console.error('Registration error:', error);
+      if (callback) callback(error);
+      else alert('Registration error: ' + error.message);
     });
 }
 
@@ -93,7 +109,7 @@ function logoutUser() {
       console.log('Logout successful');
       currentUser = null;
       updateAuthUI();
-      window.location.href = '/';
+      window.location.href = 'index.html';
     })
     .catch(function(error) {
       alert('Logout error: ' + error.message);
@@ -109,4 +125,15 @@ function getCurrentUser() {
 // Check if user is authenticated
 function isUserAuthenticated() {
   return currentUser !== null;
+}
+
+// Get user data from database
+function getUserData(userId, callback) {
+  firebase.database().ref('users/' + userId).once('value')
+    .then(function(snapshot) {
+      callback(null, snapshot.val());
+    })
+    .catch(function(error) {
+      callback(error);
+    });
 }

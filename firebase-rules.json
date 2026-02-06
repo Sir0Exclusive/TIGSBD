@@ -2,7 +2,7 @@
   "rules": {
     "products": {
       ".read": true,
-      ".write": false,
+      ".write": "auth != null",
       ".indexOn": ["category", "status"]
     },
     "carts": {
@@ -21,16 +21,16 @@
           ".validate": "newData.val() === auth.uid"
         },
         "status": {
-          ".validate": "newData.val() in ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled']"
+          ".validate": "newData.val() === 'pending' || newData.val() === 'confirmed' || newData.val() === 'shipped' || newData.val() === 'delivered' || newData.val() === 'cancelled'"
         }
       }
     },
     "users": {
       "$uid": {
-        ".read": "auth.uid === $uid",
-        ".write": "auth.uid === $uid",
+        ".read": "auth != null",
+        ".write": "auth != null",
         "email": {
-          ".validate": "newData.val() === auth.token.email"
+          ".validate": "auth.uid === $uid ? newData.val() === auth.token.email : true"
         }
       }
     },
