@@ -1,0 +1,36 @@
+[debug] [2026-02-06T14:35:22.390Z] ----------------------------------------------------------------------
+[debug] [2026-02-06T14:35:22.392Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\X13 Yoga\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js database:set /admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2 true --project tigsbd-9a4b1
+[debug] [2026-02-06T14:35:22.392Z] CLI Version:   14.20.0
+[debug] [2026-02-06T14:35:22.392Z] Platform:      win32
+[debug] [2026-02-06T14:35:22.392Z] Node Version:  v24.11.0
+[debug] [2026-02-06T14:35:22.393Z] Time:          Fri Feb 06 2026 23:35:22 GMT+0900 (Japan Standard Time)
+[debug] [2026-02-06T14:35:22.393Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-06T14:35:22.538Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-06T14:35:22.538Z] > authorizing via signed-in user (arfibd2003@gmail.com)
+[debug] [2026-02-06T14:35:22.538Z] [iam] checking project tigsbd-9a4b1 for permissions ["firebase.projects.get","firebasedatabase.instances.update"]
+[debug] [2026-02-06T14:35:22.539Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:35:22.539Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:35:22.540Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/tigsbd-9a4b1:testIamPermissions [none]
+[debug] [2026-02-06T14:35:22.540Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/tigsbd-9a4b1:testIamPermissions x-goog-quota-user=projects/tigsbd-9a4b1
+[debug] [2026-02-06T14:35:22.540Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/tigsbd-9a4b1:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update"]}
+[debug] [2026-02-06T14:35:23.200Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/tigsbd-9a4b1:testIamPermissions 200
+[debug] [2026-02-06T14:35:23.200Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/tigsbd-9a4b1:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update"]}
+[debug] [2026-02-06T14:35:23.201Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:35:23.201Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:35:23.201Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tigsbd-9a4b1 [none]
+[debug] [2026-02-06T14:35:23.529Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tigsbd-9a4b1 200
+[debug] [2026-02-06T14:35:23.529Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tigsbd-9a4b1 {"projectId":"tigsbd-9a4b1","projectNumber":"719135875143","displayName":"TIGSBD","name":"projects/tigsbd-9a4b1","resources":{"hostingSite":"tigsbd-9a4b1","realtimeDatabaseInstance":"tigsbd-9a4b1-default-rtdb"},"state":"ACTIVE","etag":"1_feb831f4-f187-46ac-8472-847b3e88be0e"}
+[debug] [2026-02-06T14:35:23.529Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:35:23.529Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:35:23.529Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/tigsbd-9a4b1/locations/-/instances/tigsbd-9a4b1-default-rtdb [none]
+[debug] [2026-02-06T14:35:24.427Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/tigsbd-9a4b1/locations/-/instances/tigsbd-9a4b1-default-rtdb 200
+[debug] [2026-02-06T14:35:24.427Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/tigsbd-9a4b1/locations/-/instances/tigsbd-9a4b1-default-rtdb {"name":"projects/719135875143/locations/us-central1/instances/tigsbd-9a4b1-default-rtdb","project":"projects/719135875143","databaseUrl":"https://tigsbd-9a4b1-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2026-02-06T14:43:23.386Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:43:23.387Z] Checked if tokens are valid: true, expires at: 1770389979692
+[debug] [2026-02-06T14:43:23.387Z] >>> [apiv2][query] PUT https://tigsbd-9a4b1-default-rtdb.firebaseio.com/admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2.json 
+[debug] [2026-02-06T14:43:23.387Z] >>> [apiv2][body] PUT https://tigsbd-9a4b1-default-rtdb.firebaseio.com/admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2.json [stream]
+[debug] [2026-02-06T14:44:24.883Z] *** [apiv2] error from fetch(https://tigsbd-9a4b1-default-rtdb.firebaseio.com/admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2.json, {"headers":{},"method":"PUT","body":{"fd":null,"path":"true","flags":"r","mode":438,"end":null,"bytesRead":0,"_events":{},"_readableState":{"highWaterMark":65536,"buffer":[],"bufferIndex":0,"length":0,"pipes":[],"awaitDrainWriters":null},"_eventsCount":2}}): FetchError: request to https://tigsbd-9a4b1-default-rtdb.firebaseio.com/admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2.json failed, reason: socket hang up
+[debug] [2026-02-06T14:44:24.884Z] Failed to make request to https://tigsbd-9a4b1-default-rtdb.firebaseio.com/admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2.json
+[error] 
+[error] Error: Unexpected error while setting data: Failed to make request to https://tigsbd-9a4b1-default-rtdb.firebaseio.com/admins/NOG6DcJ7OnZa8BDXGiH4GXeR8nI2.json
