@@ -10,6 +10,7 @@
     <meta name="description" content="Register - TIGSBD">
     <title>Register - TIGSBD</title>
     <link rel="stylesheet" href="assets/app-8813b74f.css">
+    <link rel="stylesheet" href="css/mobile-responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@900&display=swap" rel="stylesheet">
@@ -125,6 +126,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
     <script src="js/firebase-config.js"></script>
+    <script src="js/firebase-auth-enhanced.js"></script>
     <script>
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -136,35 +138,15 @@
             const phone = document.getElementById('register-phone').value;
             const password = document.getElementById('register-password').value;
             const confirm = document.getElementById('register-confirm').value;
-            const btn = document.getElementById('register-btn');
             
-            if (password !== confirm) {
-                alert('Passwords do not match');
-                return;
-            }
+            showLoading('register-btn');
             
-            btn.disabled = true;
-            btn.textContent = 'Creating account...';
-            
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Save user data to database
-                    return firebase.database().ref('users/' + userCredential.user.uid).set({
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        createdAt: firebase.database.ServerValue.TIMESTAMP
-                    });
-                })
-                .then(() => {
-                    console.log('Registration successful');
-                    window.location.href = 'account.html';
-                })
-                .catch((error) => {
-                    alert('Registration error: ' + error.message);
-                    btn.disabled = false;
-                    btn.textContent = 'Create Account';
-                });
+            registerUser(name, email, phone, password, confirm, (error) => {
+                hideLoading('register-btn');
+                if (error) {
+                    console.error('Registration failed:', error);
+                }
+            });
         }
     </script>
     <script src="assets/app-3f22cd7c.js"></script>

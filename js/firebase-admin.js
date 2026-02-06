@@ -3,8 +3,14 @@
 
 let currentAdmin = null;
 
-// Allowed admin emails (leave empty to allow any authenticated user)
-const ADMIN_EMAIL_WHITELIST = ['NOG6DcJ7OnZa8BDXGiH4GXeR8nI2@tigsbd.com'];
+// Input validation helpers
+const validators = {
+  sanitizeString: (str) => String(str).trim().replace(/<[^>]*>/g, ''),
+  validateEmail: (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+  validatePrice: (price) => !isNaN(price) && parseFloat(price) >= 0,
+  validateStock: (stock) => Number.isInteger(Number(stock)) && Number(stock) >= 0,
+  validateRequired: (value) => value !== null && value !== undefined && String(value).trim() !== ''
+};
 
 // Check admin authentication on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,14 +27,44 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Check if user is admin
-function checkAdminStatus(user) {
-  if (ADMIN_EMAIL_WHITELIST.length > 0 && !ADMIN_EMAIL_WHITELIST.includes(user.email)) {
-    alert('Access denied: Admin only');
-    firebase.auth().signOut();
-    return;
+async function checkAdminStatus(user) {
+  try {
+    // Check database for admin flag
+    const snapshot = await firebase.database().ref('admins/' + user.uid).once('value');
+    const isAdmin = snapshot.val() === true;
+    
+    if (!isAdmin) {
+      showError('Access denied: Admin privileges required');
+      await firebase.auth().signOut();
+      window.location.href = '/admin/login.html';
+      return false;
+    }
+    
+    console.log('Admin verified:', user.email);
+    return true;
+  } catch (error) {
+    console.error('Admin check error:', error);
+    showError('Error verifying admin status');
+    return false;
   }
+}
 
-  console.log('Admin logged in:', user.email);
+// Show error message
+function showError(message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-lg z-50';
+  errorDiv.textContent = message;
+  document.body.appendChild(errorDiv);
+  setTimeout(() => errorDiv.remove(), 5000);
+}
+
+// Show success message
+function showSuccess(message) {
+  const successDiv = document.createElement('div');
+  successDiv.className = 'fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-lg z-50';
+  successDiv.textContent = message;
+  document.body.appendChild(successDiv);
+  setTimeout(() => successDiv.remove(), 3000);
 }
 
 // Get current admin
@@ -73,15 +109,41 @@ async function getAdminProducts() {
 // Add product
 async function addAdminProduct(productData) {
   try {
-    const ref = firebase.database().ref('products').push();
-    await ref.set({
-      ...productData,
+    // Validate required fields
+    if (!validators.validateRequired(productData.name)) {
+      throw new Error('Product name is required');
+    }
+    if (!validators.validatePrice(productData.price)) {
+      throw new Error('Valid price is required');
+    }
+    if (!validators.validateStock(productData.stock)) {
+      throw new Error('Valid stock quantity is required');
+    }
+    if (!validators.validateRequired(productData.category)) {
+      throw new Error('Category is required');
+    }
+    
+    // Sanitize inputs
+    const sanitizedData = {
+      name: validators.sanitizeString(productData.name),
+      description: validators.sanitizeString(productData.description || ''),
+      price: parseFloat(productData.price),
+      stock: parseInt(productData.stock),
+      category: validators.sanitizeString(productData.category),
+      status: productData.status || 'active',
+      image: productData.image || '',
       createdAt: firebase.database.ServerValue.TIMESTAMP,
       updatedAt: firebase.database.ServerValue.TIMESTAMP
-    });
+    };
+    
+    const ref = firebase.database().ref('products').push();
+    await ref.set(sanitizedData);
+    
+    showSuccess('Product added successfully');
     return ref.key;
   } catch (error) {
     console.error('Error adding product:', error);
+    showError(error.message || 'Failed to add product');
     throw error;
   }
 }
@@ -89,12 +151,33 @@ async function addAdminProduct(productData) {
 // Update product
 async function updateAdminProduct(productId, productData) {
   try {
-    await firebase.database().ref('products/' + productId).update({
-      ...productData,
-      updatedAt: firebase.database.ServerValue.TIMESTAMP
-    });
+    if (!productId) {
+      throw new Error('Product ID is required');
+    }
+    
+    // Sanitize and validate updated data
+    const updates = {};
+    if (productData.name) updates.name = validators.sanitizeString(productData.name);
+    if (productData.description !== undefined) updates.description = validators.sanitizeString(productData.description);
+    if (productData.price !== undefined) {
+      if (!validators.validatePrice(productData.price)) throw new Error('Invalid price');
+      updates.price = parseFloat(productData.price);
+    }
+    if (productData.stock !== undefined) {
+      if (!validators.validateStock(productData.stock)) throw new Error('Invalid stock');
+      updates.stock = parseInt(productData.stock);
+    }
+    if (productData.category) updates.category = validators.sanitizeString(productData.category);
+    if (productData.status) updates.status = productData.status;
+    if (productData.image !== undefined) updates.image = productData.image;
+    
+    updates.updatedAt = firebase.database.ServerValue.TIMESTAMP;
+    
+    await firebase.database().ref('products/' + productId).update(updates);
+    showSuccess('Product updated successfully');
   } catch (error) {
     console.error('Error updating product:', error);
+    showError(error.message || 'Failed to update product');
     throw error;
   }
 }
@@ -102,9 +185,15 @@ async function updateAdminProduct(productId, productData) {
 // Delete product
 async function deleteAdminProduct(productId) {
   try {
+    if (!productId) {
+      throw new Error('Product ID is required');
+    }
+    
     await firebase.database().ref('products/' + productId).remove();
+    showSuccess('Product deleted successfully');
   } catch (error) {
     console.error('Error deleting product:', error);
+    showError('Failed to delete product');
     throw error;
   }
 }

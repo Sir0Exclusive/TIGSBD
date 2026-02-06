@@ -1,0 +1,218 @@
+/* Mobile-First Responsive Styles */
+
+/* Base Mobile Styles (320px+) */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Touch-friendly buttons */
+button, a, input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+}
+
+/* Forms */
+input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tables responsive */
+table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Cards */
+.card {
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+/* Navigation mobile */
+.mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+/* Hide desktop menu on mobile */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+    
+    /* Stack elements vertically */
+    .flex-row-desktop {
+        flex-direction: column;
+    }
+    
+    /* Full width containers */
+    .container-mobile {
+        padding: 12px;
+        width: 100%;
+    }
+    
+    /* Product grid */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    /* Admin tables */
+    .admin-table {
+        font-size: 12px;
+    }
+    
+    .admin-table td, .admin-table th {
+        padding: 8px 4px;
+    }
+    
+    /* Modal full screen on mobile */
+    .modal {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+    }
+    
+    /* Text sizes */
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 18px; }
+    
+    /* Padding adjustments */
+    .px-large { padding-left: 16px; padding-right: 16px; }
+    .py-large { padding-top: 16px; padding-bottom: 16px; }
+}
+
+/* Small tablets (576px+) */
+@media (min-width: 576px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none !important;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Loading spinner */
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #f59e0b;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error message */
+.error-message {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c33;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+.success-message {
+    background: #efe;
+    border: 1px solid #cfc;
+    color: #3c3;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* Focus states */
+*:focus-visible {
+    outline: 2px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Safe area for iOS notch */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .mobile-nav {
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
+}

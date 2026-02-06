@@ -10,6 +10,7 @@
     <meta name="description" content="Customer Login - TIGSBD">
     <title>Customer Login - TIGSBD</title>
     <link rel="stylesheet" href="assets/app-8813b74f.css">
+    <link rel="stylesheet" href="css/mobile-responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@900&display=swap" rel="stylesheet">
@@ -124,6 +125,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
     <script src="js/firebase-config.js"></script>
+    <script src="js/firebase-auth-enhanced.js"></script>
     <script>
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -134,19 +136,14 @@
             const password = document.getElementById('login-password').value;
             const btn = document.getElementById('login-btn');
             
-            btn.disabled = true;
-            btn.textContent = 'Signing in...';
+            showLoading('login-btn');
             
-            firebase.auth().signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    console.log('Login successful:', userCredential.user.email);
-                    window.location.href = 'account.html';
-                })
-                .catch((error) => {
-                    alert('Login error: ' + error.message);
-                    btn.disabled = false;
-                    btn.textContent = 'Sign in securely';
-                });
+            loginUser(email, password, (error) => {
+                hideLoading('login-btn');
+                if (error) {
+                    console.error('Login failed:', error);
+                }
+            });
         }
     </script>
     <script src="assets/app-3f22cd7c.js"></script>
