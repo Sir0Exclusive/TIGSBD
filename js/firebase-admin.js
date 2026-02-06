@@ -4,7 +4,7 @@
 let currentAdmin = null;
 
 // Allowed admin emails (leave empty to allow any authenticated user)
-const ADMIN_EMAIL_WHITELIST = [];
+const ADMIN_EMAIL_WHITELIST = ['NOG6DcJ7OnZa8BDXGiH4GXeR8nI2@tigsbd.com'];
 
 // Check admin authentication on page load
 document.addEventListener('DOMContentLoaded', function() {
