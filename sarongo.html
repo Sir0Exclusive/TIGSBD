@@ -335,9 +335,17 @@
         // Product Data
         const products = [
             { name: 'Premium Sarongo Classic', category: 'traditional', price: '1,299', originalPrice: '1,599', discount: '20% OFF' },
+            { name: 'Everyday Sarongo', category: 'traditional', price: '749', originalPrice: '849', discount: '10% OFF' },
+            { name: 'Classic Pattern Sarongo', category: 'traditional', price: '599', originalPrice: null, discount: null },
+            { name: 'Everyday Cotton Sarongo', category: 'traditional', price: '549', originalPrice: null, discount: null },
             { name: 'Modern Printed Sarongo', category: 'modern', price: '999', originalPrice: '1,199', discount: '15% OFF' },
+            { name: 'Modern Stripe Sarongo', category: 'modern', price: '799', originalPrice: null, discount: null },
+            { name: 'Sunset Woven Sarongo', category: 'modern', price: '899', originalPrice: null, discount: null },
             { name: 'Luxury Sarongo Set', category: 'premium', price: '1,899', originalPrice: null, discount: null },
-            { name: 'Everyday Sarongo', category: 'traditional', price: '749', originalPrice: '849', discount: '10% OFF' }
+            { name: 'Premium Silk Sarongo', category: 'premium', price: '1,499', originalPrice: null, discount: null },
+            { name: 'Heritage Design Sarongo', category: 'classic', price: '899', originalPrice: null, discount: null },
+            { name: 'Classic Weave Sarongo', category: 'classic', price: '799', originalPrice: null, discount: null },
+            { name: 'Limited Edition Sarongo', category: 'limited', price: '1,999', originalPrice: null, discount: null }
         ];
 
         // Function to render products
@@ -345,12 +353,26 @@
             const grid = document.getElementById('productsGrid');
             const categoryTitle = document.getElementById('categoryTitle');
             
+            if (!grid) {
+                console.error('Products grid not found');
+                return;
+            }
+            
             let filteredProducts = products;
             if (selectedCategory) {
                 filteredProducts = products.filter(p => p.category === selectedCategory);
-                categoryTitle.textContent = `Showing ${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} products`;
+                if (categoryTitle) {
+                    categoryTitle.textContent = `Showing ${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} products`;
+                }
             } else {
-                categoryTitle.textContent = '';
+                if (categoryTitle) {
+                    categoryTitle.textContent = '';
+                }
+            }
+
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-gray-600 text-lg">No products found in this category.</p></div>';
+                return;
             }
 
             grid.innerHTML = filteredProducts.map(product => `
