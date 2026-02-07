@@ -59,38 +59,85 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-slate-100 shadow-2xl sticky top-0 z-50 backdrop-blur-lg border-b border-slate-800/70">
+    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-2 md:gap-3">
-                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
-                        <span class="chrome-logo-text">
-                            <div class="main-text">TIGSBD</div>
-                            <div class="sub-text">Premium</div>
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-2xl font-bold flex flex-col leading-tight">
+                            <span class="text-amber-300">TIGSBD</span>
+                            <span class="text-xs text-amber-200/80 font-semibold">Premium</span>
                         </span>
+                    </a>
+                    <a href="index.html" class="px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-amber-400 text-slate-900 text-xs font-bold hover:bg-amber-300 transition shadow">
+                        Home
                     </a>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="index.html" class="text-slate-100 hover:text-amber-300 px-3 py-2 rounded-md text-sm font-semibold transition">Home</a>
-                    <a href="products.html" class="text-slate-100 hover:text-amber-300 px-3 py-2 rounded-md text-sm font-semibold transition">Products</a>
+                <div class="hidden md:flex gap-4 items-center space-x-8">
+                    <a href="index.html" class="hover:text-amber-300 transition font-semibold">Home</a>
+                    <a href="products.html" class="text-amber-300 hover:text-amber-200 transition font-semibold">Products</a>
+                    <a href="sarongo.html" class="hover:text-amber-300 transition">Sarongo</a>
                 </div>
 
-                <div class="flex items-center gap-4 relative">
-                    <div class="relative flex-1 md:w-64">
-                        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off"
-                               class="w-full px-4 py-2 rounded-lg bg-slate-800 text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-300/50" 
-                               onkeyup="filterProducts()">
-                        
-                        <!-- Search Suggestions Dropdown -->
-                        <div id="productSearchSuggestions" class="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-2xl hidden z-50 overflow-hidden max-h-80 overflow-y-auto">
-                            <div id="productSuggestionsList" class="divide-y divide-slate-100"></div>
-                        </div>
-                    </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="cart.html" class="hover:text-amber-300 transition relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-amber-400 text-slate-900 text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">3</span>
+                    </a>
+                    <a href="wishlist.html" class="hover:text-amber-300 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </a>
+                    <a href="login.html" class="bg-amber-400 text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-amber-300 transition">Login</a>
+                </div>
+
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-slate-800 transition" aria-label="Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 hidden" style="display: none; position: fixed; inset: 0; z-index: 2147483646;"></div>
+    
+    <!-- Mobile Menu Panel -->
+    <div id="mobileMenuPanel" class="fixed top-0 left-0 w-80 h-screen bg-slate-900 shadow-2xl transform -translate-x-full transition-transform duration-300" style="position: fixed; transform: translateX(-100%); width: min(100%, 20rem); z-index: 2147483647;">
+        <!-- Menu Content -->
+        <div class="flex flex-col h-full">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-4 border-b border-slate-700">
+                <span class="text-lg font-bold text-amber-300">Menu</span>
+                <button id="closeMobileMenuBtn" class="p-2 text-white hover:bg-slate-800 rounded transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Links -->
+            <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-amber-400 hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Home</a>
+                <a href="products.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Products</a>
+                <a href="sarongo.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Sarongo</a>
+                <a href="cart.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Cart</a>
+                <a href="wishlist.html" class="block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold">Wishlist</a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-slate-700">
+                <a href="login.html" class="block w-full bg-amber-400 text-slate-900 px-4 py-3 rounded-lg font-bold text-center hover:bg-amber-300 transition">Login</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-8">
@@ -271,6 +318,55 @@
         // Initial load from Firebase
         document.addEventListener('DOMContentLoaded', initProducts);
     </script>
-    <script src="js/mobile-menu-global.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function openMobileMenu() {
+            if (mobileMenuPanel) {
+                mobileMenuPanel.style.transform = 'translateX(0)';
+            }
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.style.display = 'block';
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenuPanel) {
+                mobileMenuPanel.style.transform = 'translateX(-100%)';
+            }
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.style.display = 'none';
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+        }
+
+        if (closeMobileMenuBtn) {
+            closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Close menu when clicking links
+        const mobileMenuLinks = mobileMenuPanel ? mobileMenuPanel.querySelectorAll('a') : [];
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>\n    <script src=\"js/mobile-menu-global.js\"></script>
 </body>
 </html>

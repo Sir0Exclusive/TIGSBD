@@ -45,20 +45,37 @@
         </div>
     </div>
 
-    <nav class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-slate-100 shadow-2xl sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="text-2xl font-bold chrome-logo-text">
-                    <span class="main-text">TIGS</span>
-                    <span class="sub-text">BD</span>
-                </a>
-                <div class="flex gap-4">
-                    <a href="index.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Home</a>
-                    <a href="products.html" class="text-slate-100 hover:text-amber-300 text-sm font-semibold">Products</a>
+    <nav class=\"bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-lg sticky top-0 z-50\">
+        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">
+            <div class=\"flex items-center justify-between h-16\">
+                <div class=\"flex items-center gap-2 md:gap-3\">
+                    <a href=\"index.html\" class=\"flex items-center\">
+                        <span class=\"text-2xl font-bold flex flex-col leading-tight\">
+                            <span class=\"text-amber-300\">TIGSBD</span>
+                            <span class=\"text-xs text-amber-200/80 font-semibold\">Premium</span>
+                        </span>
+                    </a>
+                    <a href=\"index.html\" class=\"px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-amber-400 text-slate-900 text-xs font-bold hover:bg-amber-300 transition shadow\">
+                        Home
+                    </a>
                 </div>
-            </div>
-        </div>
-    </nav>
+
+                <div class=\"hidden md:flex gap-4 items-center space-x-8\">
+                    <a href=\"index.html\" class=\"hover:text-amber-300 transition font-semibold\">Home</a>
+                    <a href=\"products.html\" class=\"hover:text-amber-300 transition\">Products</a>
+                    <a href=\"sarongo.html\" class=\"hover:text-amber-300 transition\">Sarongo</a>
+                </div>
+
+                <div class=\"hidden md:flex items-center space-x-4\">
+                    <a href=\"cart.html\" class=\"hover:text-amber-300 transition relative\">
+                        <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z\"></path>
+                        </svg>
+                        <span class=\"absolute -top-2 -right-2 bg-amber-400 text-slate-900 text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold\">3</span>
+                    </a>
+                    <a href=\"wishlist.html\" class=\"hover:text-amber-300 transition\">
+                        <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z\"></path>\n                        </svg>\n                    </a>\n                    <a href=\"login.html\" class=\"bg-amber-400 text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-amber-300 transition\">Logout</a>\n                </div>\n\n                <div class=\"md:hidden flex items-center gap-2\">\n                    <button id=\"mobileMenuBtn\" class=\"p-2 rounded-lg hover:bg-slate-800 transition\" aria-label=\"Menu\">\n                        <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 6h16M4 12h16M4 18h16\"></path>\n                        </svg>\n                    </button>\n                </div>\n            </div>\n        </div>\n    </nav>\n\n    <!-- Mobile Menu Overlay -->\n    <div id=\"mobileMenuOverlay\" class=\"fixed inset-0 bg-black/50 hidden\" style=\"display: none; position: fixed; inset: 0; z-index: 2147483646;\"></div>\n    \n    <!-- Mobile Menu Panel -->\n    <div id=\"mobileMenuPanel\" class=\"fixed top-0 left-0 w-80 h-screen bg-slate-900 shadow-2xl transform -translate-x-full transition-transform duration-300\" style=\"position: fixed; transform: translateX(-100%); width: min(100%, 20rem); z-index: 2147483647;\">\n        <!-- Menu Content -->\n        <div class=\"flex flex-col h-full\">\n            <!-- Header -->\n            <div class=\"flex items-center justify-between p-4 border-b border-slate-700\">\n                <span class=\"text-lg font-bold text-amber-300\">Menu</span>\n                <button id=\"closeMobileMenuBtn\" class=\"p-2 text-white hover:bg-slate-800 rounded transition\">\n                    <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path>\n                    </svg>\n                </button>\n            </div>\n\n            <!-- Links -->\n            <nav class=\"flex-1 overflow-y-auto p-4 space-y-2\">\n                <a href=\"index.html\" class=\"block px-4 py-3 text-amber-400 hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold\">Home</a>\n                <a href=\"products.html\" class=\"block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold\">Products</a>\n                <a href=\"sarongo.html\" class=\"block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold\">Sarongo</a>\n                <a href=\"cart.html\" class=\"block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold\">Cart</a>\n                <a href=\"wishlist.html\" class=\"block px-4 py-3 text-white hover:bg-amber-500 hover:text-slate-900 rounded-lg transition font-semibold\">Wishlist</a>\n            </nav>\n\n            <!-- Footer -->\n            <div class=\"p-4 border-t border-slate-700\">\n                <a href=\"login.html\" class=\"block w-full bg-amber-400 text-slate-900 px-4 py-3 rounded-lg font-bold text-center hover:bg-amber-300 transition\">Logout</a>\n            </div>\n        </div>\n    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">My Account</h1>
@@ -126,8 +143,56 @@
         firebase.auth().onAuthStateChanged((user) => {
             if (!user) window.location.href = 'login.html';
         });
-    </script>
-    <script src="assets/app-3f22cd7c.js"></script>
+    </script>    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function openMobileMenu() {
+            if (mobileMenuPanel) {
+                mobileMenuPanel.style.transform = 'translateX(0)';
+            }
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.style.display = 'block';
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenuPanel) {
+                mobileMenuPanel.style.transform = 'translateX(-100%)';
+            }
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.style.display = 'none';
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+        }
+
+        if (closeMobileMenuBtn) {
+            closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Close menu when clicking links
+        const mobileMenuLinks = mobileMenuPanel ? mobileMenuPanel.querySelectorAll('a') : [];
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>    <script src="assets/app-3f22cd7c.js"></script>
     <script src="js/mobile-menu-global.js"></script>
 </body>
 </html>
