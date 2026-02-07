@@ -18,9 +18,15 @@ class FirebaseDB {
     }
   }
 
+  ensureInitialized() {
+    if (!this.initialized) {
+      this.init();
+    }
+  }
+
   // Get all active products
   async getProducts() {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     return new Promise((resolve, reject) => {
       this.db.ref('products').orderByChild('status').equalTo('active').once('value', function(snapshot) {
         const products = [];
@@ -37,7 +43,7 @@ class FirebaseDB {
 
   // Get single product by ID
   async getProduct(productId) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     return new Promise((resolve, reject) => {
       this.db.ref('products/' + productId).once('value', function(snapshot) {
         if (snapshot.exists()) {
@@ -54,7 +60,7 @@ class FirebaseDB {
 
   // Get user cart
   async getCart(userId) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     return new Promise((resolve, reject) => {
       this.db.ref('carts/' + userId).once('value', function(snapshot) {
         const items = [];
@@ -71,7 +77,7 @@ class FirebaseDB {
 
   // Add item to cart
   async addToCart(userId, productId, quantity) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     try {
       await this.db.ref('carts/' + userId + '/' + productId).set({
         quantity: quantity,
@@ -86,7 +92,7 @@ class FirebaseDB {
 
   // Update cart item quantity
   async updateCartItem(userId, productId, quantity) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     try {
       if (quantity <= 0) {
         await this.removeFromCart(userId, productId);
@@ -102,7 +108,7 @@ class FirebaseDB {
 
   // Remove item from cart
   async removeFromCart(userId, productId) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     try {
       await this.db.ref('carts/' + userId + '/' + productId).remove();
       return true;
@@ -114,7 +120,7 @@ class FirebaseDB {
 
   // Clear entire cart
   async clearCart(userId) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     try {
       await this.db.ref('carts/' + userId).remove();
       return true;
@@ -126,7 +132,7 @@ class FirebaseDB {
 
   // Create order
   async createOrder(userId, orderData) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     try {
       const ref = this.db.ref('orders').push();
       await ref.set({
@@ -136,10 +142,10 @@ class FirebaseDB {
         status: 'pending',
         createdAt: firebase.database.ServerValue.TIMESTAMP
       });
-      
+
       // Clear cart after order
       await this.clearCart(userId);
-      
+
       return ref.key;
     } catch (error) {
       console.error('Error creating order:', error);
@@ -149,7 +155,7 @@ class FirebaseDB {
 
   // Get user orders
   async getUserOrders(userId) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     return new Promise((resolve, reject) => {
       this.db.ref('orders').orderByChild('userId').equalTo(userId).once('value', function(snapshot) {
         const orders = [];
@@ -168,7 +174,7 @@ class FirebaseDB {
 
   // Get single order
   async getOrder(orderId) {
-    if (!this.initialized) this.init();
+    this.ensureInitialized();
     return new Promise((resolve, reject) => {
       this.db.ref('orders/' + orderId).once('value', function(snapshot) {
         if (snapshot.exists()) {
@@ -185,52 +191,4 @@ class FirebaseDB {
 }
 
 // Create global instance
-const firebaseDB = new FirebaseDB();
-      await this.db.ref('carts/' + userId + '/' + productId).remove();
-    } catch (error) {
-      console.error('Error removing from cart:', error);
-      throw error;
-    }
-  }
-
-  // Clear cart
-  async clearCart(userId) {
-    try {
-      await this.db.ref('carts/' + userId).remove();
-    } catch (error) {
-      console.error('Error clearing cart:', error);
-      throw error;
-    }
-  }
-
-  // Create order
-  async createOrder(userId, orderData) {
-    try {
-      const ref = this.db.ref('orders').push();
-      await ref.set({
-        userId: userId,
-        ...orderData,
-        id: ref.key,
-        createdAt: firebase.database.ServerValue.TIMESTAMP,
-        status: 'pending'
-      });
-      return ref.key;
-    } catch (error) {
-      console.error('Error creating order:', error);
-      throw error;
-    }
-  }
-
-  // Get user orders
-  async getUserOrders(userId) {
-    return new Promise((resolve, reject) => {
-      this.db.ref('orders').orderByChild('userId').equalTo(userId).once('value', function(snapshot) {
-        const data = snapshot.val();
-        resolve(data || {});
-      }, reject);
-    });
-  }
-}
-
-// Initialize database
-const firebaseDB = new FirebaseDB();
+window.firebaseDB = new FirebaseDB();
