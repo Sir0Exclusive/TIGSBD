@@ -311,6 +311,7 @@
         let searchTimeout;
 
         function updateSearchSuggestions(query, results) {
+            if (!searchSuggestions) return;
             if (query.length < 2) {
                 searchSuggestions.classList.add('hidden');
                 return;
@@ -318,7 +319,7 @@
 
             const topResults = results.slice(0, 5);
 
-            if (topResults.length > 0) {
+            if (topResults.length > 0 && suggestionsList) {
                 suggestionsList.innerHTML = topResults.map(product => `
                     <a href="product.html?id=${product.id}" class="flex items-center gap-3 p-3 hover:bg-slate-50 transition group">
                         <img src="${product.image}" alt="${product.name}" class="w-12 h-12 object-cover rounded-lg">
@@ -329,7 +330,7 @@
                     </a>
                 `).join('');
                 searchSuggestions.classList.remove('hidden');
-            } else if (query.length >= 2) {
+            } else if (query.length >= 2 && suggestionsList) {
                 suggestionsList.innerHTML = `
                     <div class="p-4 text-center text-slate-500">
                         <div class="mb-2">No products found</div>
@@ -342,17 +343,19 @@
 
         // Close suggestions when clicking outside
         document.addEventListener('click', function(e) {
-            if (!searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
+            if (searchInput && searchSuggestions && !searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
                 searchSuggestions.classList.add('hidden');
             }
         });
 
         // Show suggestions on focus if there's a query
-        searchInput.addEventListener('focus', function() {
-            if (this.value.trim().length >= 2) {
-                filterProducts();
-            }
-        });
+        if (searchInput) {
+            searchInput.addEventListener('focus', function() {
+                if (this.value.trim().length >= 2) {
+                    filterProducts();
+                }
+            });
+        }
 
         // Initial load from Firebase
         document.addEventListener('DOMContentLoaded', initProducts);
@@ -363,7 +366,7 @@
         const mobileSearchModal = document.getElementById('mobileSearchModal');
         const mobileSearchInput = document.getElementById('mobileSearchInput');
 
-        if (mobileSearchBtn) {
+        if (mobileSearchBtn && mobileSearchModal && mobileSearchInput) {
             mobileSearchBtn.addEventListener('click', function() {
                 mobileSearchModal.classList.remove('hidden');
                 setTimeout(() => mobileSearchInput.focus(), 100);
@@ -435,6 +438,7 @@
                 closeMobileMenu();
             }
         });
-    </script>\n    <script src=\"js/mobile-menu-global.js\"></script>
+    </script>
+    <script src="js/mobile-menu-global.js"></script>
 </body>
 </html>
