@@ -142,7 +142,7 @@
             <span class="mx-1 md:mx-2">/</span>
             <a href="sarongo.html" class="hover:text-orange-600">Sarongo</a>
             <span class="mx-1 md:mx-2">/</span>
-            <span class="inline-block max-w-xs truncate align-bottom">Premium Sarongo Classic</span>
+            <span id="productBreadcrumb" class="inline-block max-w-xs truncate align-bottom">Premium Sarongo Classic</span>
         </nav>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
@@ -154,19 +154,19 @@
                 </div>
             </div>
             <div>
-                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Premium Sarongo Classic</h1>
-                <div class="mb-3 md:mb-4"><span class="text-xs md:text-sm text-gray-600">SKU: SRG-CL-1042</span></div>
+                <h1 id="productName" class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Premium Sarongo Classic</h1>
+                <div class="mb-3 md:mb-4"><span id="productSku" class="text-xs md:text-sm text-gray-600">SKU: SRG-CL-1042</span></div>
                 <div class="mb-4 md:mb-6">
                     <div class="flex flex-wrap items-center gap-2 md:gap-4">
-                        <span class="text-2xl sm:text-3xl font-bold text-red-600">BDT 1,299</span>
-                        <span class="text-lg sm:text-xl text-gray-500 line-through">BDT 1,599</span>
-                        <span class="bg-red-100 text-red-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold">20% OFF</span>
+                        <span id="productPrice" class="text-2xl sm:text-3xl font-bold text-red-600">BDT 1,299</span>
+                        <span id="productOriginalPrice" class="text-lg sm:text-xl text-gray-500 line-through">BDT 1,599</span>
+                        <span id="productDiscount" class="bg-red-100 text-red-600 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold">20% OFF</span>
                     </div>
                 </div>
                 <div class="mb-4 md:mb-6"><span class="text-sm md:text-base text-green-600 font-semibold">In Stock (24 available)</span></div>
                 <div class="mb-4 md:mb-6">
                     <h3 class="font-semibold text-sm md:text-base text-gray-800 mb-2">Description</h3>
-                    <p class="text-sm md:text-base text-gray-600">A premium sarongo crafted with breathable fabric, bold patterns, and durable stitching. Perfect for everyday wear or gifting.</p>
+                    <p id="productDescription" class="text-sm md:text-base text-gray-600">A premium sarongo crafted with breathable fabric, bold patterns, and durable stitching. Perfect for everyday wear or gifting.</p>
                 </div>
                 <form class="mb-4 md:mb-6">
                     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-4">
@@ -177,7 +177,7 @@
                 </form>
                 <div class="border-t pt-4 md:pt-6">
                     <h3 class="font-semibold text-sm md:text-base text-gray-800 mb-2">Category</h3>
-                    <a href="sarongo.html" class="text-sm md:text-base text-orange-600 hover:underline">Traditional</a>
+                    <a id="productCategory" href="sarongo.html" class="text-sm md:text-base text-orange-600 hover:underline">Traditional</a>
                 </div>
             </div>
         </div>
@@ -186,13 +186,13 @@
             <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Related Products</h2>
             <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-6">
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden border border-orange-50">
-                    <a href="sarongo_product.html">
+                    <a href="sarongo_product.html?product=modern-printed-sarongo">
                         <div class="w-full h-40 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
                             <svg class="w-10 h-10 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                     </a>
                     <div class="p-4">
-                        <a href="sarongo_product.html" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Modern Printed Sarongo</a>
+                        <a href="sarongo_product.html?product=modern-printed-sarongo" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Modern Printed Sarongo</a>
                         <div class="mt-2">
                             <span class="text-sm font-bold text-red-600">BDT 999</span>
                             <span class="text-xs text-gray-500 line-through ml-2">BDT 1,199</span>
@@ -200,26 +200,26 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden border border-orange-50">
-                    <a href="sarongo_product.html">
+                    <a href="sarongo_product.html?product=luxury-sarongo-set">
                         <div class="w-full h-40 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
                             <svg class="w-10 h-10 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                     </a>
                     <div class="p-4">
-                        <a href="sarongo_product.html" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Luxury Sarongo Set</a>
+                        <a href="sarongo_product.html?product=luxury-sarongo-set" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Luxury Sarongo Set</a>
                         <div class="mt-2">
                             <span class="text-sm font-bold text-gray-800">BDT 1,899</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden border border-orange-50">
-                    <a href="sarongo_product.html">
+                    <a href="sarongo_product.html?product=everyday-sarongo">
                         <div class="w-full h-40 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
                             <svg class="w-10 h-10 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                     </a>
                     <div class="p-4">
-                        <a href="sarongo_product.html" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Everyday Sarongo</a>
+                        <a href="sarongo_product.html?product=everyday-sarongo" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Everyday Sarongo</a>
                         <div class="mt-2">
                             <span class="text-sm font-bold text-red-600">BDT 749</span>
                             <span class="text-xs text-gray-500 line-through ml-2">BDT 849</span>
@@ -227,26 +227,26 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden border border-orange-50">
-                    <a href="sarongo_product.html">
+                    <a href="sarongo_product.html?product=limited-edition-sarongo">
                         <div class="w-full h-40 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
                             <svg class="w-10 h-10 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                     </a>
                     <div class="p-4">
-                        <a href="sarongo_product.html" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Limited Edition Sarongo</a>
+                        <a href="sarongo_product.html?product=limited-edition-sarongo" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Limited Edition Sarongo</a>
                         <div class="mt-2">
                             <span class="text-sm font-bold text-gray-800">BDT 1,999</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden border border-orange-50">
-                    <a href="sarongo_product.html">
+                    <a href="sarongo_product.html?product=premium-silk-sarongo">
                         <div class="w-full h-40 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
                             <svg class="w-10 h-10 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                     </a>
                     <div class="p-4">
-                        <a href="sarongo_product.html" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Premium Silk Sarongo</a>
+                        <a href="sarongo_product.html?product=premium-silk-sarongo" class="text-sm font-semibold text-gray-800 hover:text-orange-600">Premium Silk Sarongo</a>
                         <div class="mt-2">
                             <span class="text-sm font-bold text-red-600">BDT 1,499</span>
                             <span class="text-xs text-gray-500 line-through ml-2">BDT 1,699</span>
@@ -264,6 +264,159 @@
             </div>
         </div>
     </footer>
+    <script>
+        const sarongoProducts = {
+            'premium-sarongo-classic': {
+                name: 'Premium Sarongo Classic',
+                category: 'traditional',
+                price: '1,299',
+                originalPrice: '1,599',
+                discount: '20% OFF',
+                sku: 'SRG-CL-1042',
+                description: 'A premium sarongo crafted with breathable fabric, bold patterns, and durable stitching. Perfect for everyday wear or gifting.'
+            },
+            'everyday-sarongo': {
+                name: 'Everyday Sarongo',
+                category: 'traditional',
+                price: '749',
+                originalPrice: '849',
+                discount: '10% OFF',
+                sku: 'SRG-ED-1109',
+                description: 'Comfortable everyday sarongo with soft texture and easy-care fabric for daily wear.'
+            },
+            'classic-pattern-sarongo': {
+                name: 'Classic Pattern Sarongo',
+                category: 'traditional',
+                price: '599',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-CP-1015',
+                description: 'Traditional pattern with timeless design and breathable cotton weave.'
+            },
+            'everyday-cotton-sarongo': {
+                name: 'Everyday Cotton Sarongo',
+                category: 'traditional',
+                price: '549',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-CT-1021',
+                description: 'Lightweight cotton sarongo perfect for warm weather and casual styling.'
+            },
+            'modern-printed-sarongo': {
+                name: 'Modern Printed Sarongo',
+                category: 'modern',
+                price: '999',
+                originalPrice: '1,199',
+                discount: '15% OFF',
+                sku: 'SRG-MP-2011',
+                description: 'Modern prints and vibrant colors for a contemporary look.'
+            },
+            'modern-stripe-sarongo': {
+                name: 'Modern Stripe Sarongo',
+                category: 'modern',
+                price: '799',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-MS-2018',
+                description: 'Clean stripe pattern with modern styling and soft finish.'
+            },
+            'sunset-woven-sarongo': {
+                name: 'Sunset Woven Sarongo',
+                category: 'modern',
+                price: '899',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-SW-2025',
+                description: 'Warm sunset tones woven into a modern, lightweight sarongo.'
+            },
+            'luxury-sarongo-set': {
+                name: 'Luxury Sarongo Set',
+                category: 'premium',
+                price: '1,899',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-LX-3007',
+                description: 'Premium set with rich fabric, refined finish, and elegant packaging.'
+            },
+            'premium-silk-sarongo': {
+                name: 'Premium Silk Sarongo',
+                category: 'premium',
+                price: '1,499',
+                originalPrice: '1,699',
+                discount: '12% OFF',
+                sku: 'SRG-PS-3012',
+                description: 'Silk blend sarongo with a smooth drape and premium feel.'
+            },
+            'heritage-design-sarongo': {
+                name: 'Heritage Design Sarongo',
+                category: 'classic',
+                price: '899',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-HD-4016',
+                description: 'Heritage motifs inspired by traditional craftsmanship.'
+            },
+            'classic-weave-sarongo': {
+                name: 'Classic Weave Sarongo',
+                category: 'classic',
+                price: '799',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-CW-4023',
+                description: 'Classic weave with subtle texture and durable stitching.'
+            },
+            'limited-edition-sarongo': {
+                name: 'Limited Edition Sarongo',
+                category: 'limited',
+                price: '1,999',
+                originalPrice: null,
+                discount: null,
+                sku: 'SRG-LE-5001',
+                description: 'Limited edition release with exclusive pattern and premium finish.'
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('product') || 'premium-sarongo-classic';
+        const product = sarongoProducts[slug] || sarongoProducts['premium-sarongo-classic'];
+
+        const nameEl = document.getElementById('productName');
+        const breadcrumbEl = document.getElementById('productBreadcrumb');
+        const skuEl = document.getElementById('productSku');
+        const priceEl = document.getElementById('productPrice');
+        const originalPriceEl = document.getElementById('productOriginalPrice');
+        const discountEl = document.getElementById('productDiscount');
+        const descEl = document.getElementById('productDescription');
+        const categoryEl = document.getElementById('productCategory');
+
+        if (nameEl) nameEl.textContent = product.name;
+        if (breadcrumbEl) breadcrumbEl.textContent = product.name;
+        if (skuEl) skuEl.textContent = `SKU: ${product.sku}`;
+        if (priceEl) priceEl.textContent = `BDT ${product.price}`;
+        if (originalPriceEl) {
+            if (product.originalPrice) {
+                originalPriceEl.textContent = `BDT ${product.originalPrice}`;
+                originalPriceEl.style.display = '';
+            } else {
+                originalPriceEl.style.display = 'none';
+            }
+        }
+        if (discountEl) {
+            if (product.discount) {
+                discountEl.textContent = product.discount;
+                discountEl.style.display = '';
+            } else {
+                discountEl.style.display = 'none';
+            }
+        }
+        if (descEl) descEl.textContent = product.description;
+        if (categoryEl) {
+            const categoryLabel = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+            categoryEl.textContent = categoryLabel;
+            categoryEl.href = `sarongo.html?category=${product.category}`;
+        }
+        document.title = `${product.name} - Sarongo`;
+    </script>
     <script src="assets/app-3f22cd7c.js"></script>
     <script>
         // Mobile Menu for Sarongo (Standalone)
