@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    if (window.location.pathname.endsWith("/login.html") || window.location.pathname.endsWith("/register.html")) {
+        return;
+    }
+
     if (document.getElementById("mobileMenuPanel") || document.getElementById("mobileMenuBtn")) {
         return;
     }
