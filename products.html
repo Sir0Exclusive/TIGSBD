@@ -26,6 +26,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 0 rgba(255, 255, 255, 0.8));
+            text-shadow: 
+                0 1px 0 rgba(255, 255, 255, 0.8),
+                0 2px 3px rgba(0, 0, 0, 0.3),
+                0 -1px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         
         .chrome-logo-text .sub-text {
@@ -34,6 +40,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) drop-shadow(0 0.5px 0 rgba(255, 255, 255, 0.8));
+            text-shadow: 
+                0 0.5px 0 rgba(255, 255, 255, 0.8),
+                0 1px 2px rgba(0, 0, 0, 0.3),
+                0 -0.5px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
             margin-left: 1px;
         }
         
@@ -44,6 +56,14 @@
             .chrome-logo-text .sub-text {
                 font-size: 0.9375rem;
             }
+        }
+        
+        .chrome-logo-text:hover .main-text,
+        .chrome-logo-text:hover .sub-text {
+            background: linear-gradient(180deg, #f0f0f0 0%, #ffffff 30%, #e4e4e4 50%, #999999 80%, #777777 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -63,11 +83,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-2 md:gap-3">
-                    <a href="index.html" class="flex items-center">
-                        <span class="text-2xl font-bold flex flex-col leading-tight">
-                            <span class="text-amber-300">TIGSBD</span>
-                            <span class="text-xs text-amber-200/80 font-semibold">Premium</span>
-                        </span>
+                    <a href="index.html" class="chrome-logo-text">
+                        <div class="main-text">TIGSBD</div>
+                        <div class="sub-text">Premium</div>
                     </a>
                     <a href="index.html" class="px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-amber-400 text-slate-900 text-xs font-bold hover:bg-amber-300 transition shadow">
                         Home
